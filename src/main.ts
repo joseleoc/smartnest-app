@@ -1,4 +1,9 @@
-import { enableProdMode, isDevMode } from '@angular/core';
+import {
+  APP_INITIALIZER,
+  enableProdMode,
+  inject,
+  isDevMode,
+} from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter } from '@angular/router';
 import {
@@ -11,7 +16,8 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { provideHttpClient } from '@angular/common/http';
 import { TranslocoHttpLoader } from './transloco-loader';
-import { provideTransloco } from '@jsverse/transloco';
+import { TranslocoService, provideTransloco } from '@jsverse/transloco';
+import { firstValueFrom } from 'rxjs';
 
 if (environment.production) {
   enableProdMode();
@@ -25,13 +31,34 @@ bootstrapApplication(AppComponent, {
     provideHttpClient(),
     provideTransloco({
       config: {
-        availableLangs: ['en', 'es'],
+        availableLangs: [
+          {
+            id: 'en',
+            label: 'English',
+          },
+          {
+            id: 'es',
+            label: 'Spanish',
+          },
+        ],
         defaultLang: 'es',
-        // Remove this option if your application doesn't support changing language in runtime.
+        fallbackLang: 'es',
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },
       loader: TranslocoHttpLoader,
     }),
+    {
+      // Preload the default language before the app starts to prevent empty/jumping content
+      provide: APP_INITIALIZER,
+      useFactory: () => {
+        const translocoService = inject(TranslocoService);
+        const defaultLang = translocoService.getDefaultLang();
+        translocoService.setActiveLang(defaultLang);
+
+        return () => firstValueFrom(translocoService.load(defaultLang));
+      },
+      multi: true,
+    },
   ],
 });

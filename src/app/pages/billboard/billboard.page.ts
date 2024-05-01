@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -22,8 +22,6 @@ import {
     FormsModule,
   ],
 })
-export class BillboardPage implements OnInit {
+export class BillboardPage {
   constructor() {}
-
-  ngOnInit() {}
 }

@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-import {
-  IonApp,
-  IonSplitPane,
-  IonContent,
-  IonList,
-  IonListHeader,
-} from '@ionic/angular/standalone';
+import { IonApp } from '@ionic/angular/standalone';
 import { LayoutComponent } from './layout/layout.component';
 
 @Component({
@@ -16,5 +10,13 @@ import { LayoutComponent } from './layout/layout.component';
   imports: [IonApp, LayoutComponent],
 })
 export class AppComponent {
-  constructor() {}
+  // -----------------------------------------------------------------------------------------------------
+  // @ Services
+  // -----------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------------
+  // @ CONSTRUCTOR
+  // -----------------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------------
+  // @ LIFECYCLE HOOKS
+  // -----------------------------------------------------------------------------------------------------
 }

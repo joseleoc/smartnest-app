@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import {
   IonContent,
   IonHeader,
@@ -27,8 +26,6 @@ import { TranslocoModule } from '@jsverse/transloco';
     IonButtons,
   ],
 })
-export class IncomePage implements OnInit {
+export class IncomePage {
   constructor() {}
-
-  ngOnInit() {}
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import {
   IonContent,
   IonHeader,
@@ -12,9 +11,9 @@ import {
 import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
-  selector: 'app-billboard',
-  templateUrl: './billboard.page.html',
-  styleUrls: ['./billboard.page.scss'],
+  selector: 'app-reports',
+  templateUrl: './reports.page.html',
+  styleUrls: ['./reports.page.scss'],
   standalone: true,
   imports: [
     IonContent,
@@ -27,6 +26,6 @@ import { TranslocoModule } from '@jsverse/transloco';
     IonButtons,
   ],
 })
-export class BillboardPage {
+export class ReportsPage {
   constructor() {}
 }

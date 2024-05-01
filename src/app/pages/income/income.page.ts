@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -12,9 +12,9 @@ import {
 import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
-  selector: 'app-billboard',
-  templateUrl: './billboard.page.html',
-  styleUrls: ['./billboard.page.scss'],
+  selector: 'app-income',
+  templateUrl: './income.page.html',
+  styleUrls: ['./income.page.scss'],
   standalone: true,
   imports: [
     IonContent,
@@ -27,6 +27,8 @@ import { TranslocoModule } from '@jsverse/transloco';
     IonButtons,
   ],
 })
-export class BillboardPage {
+export class IncomePage implements OnInit {
   constructor() {}
+
+  ngOnInit() {}
 }

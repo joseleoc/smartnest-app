@@ -1,36 +1,27 @@
-<ion-split-pane contentId="main-content">
+<ion-split-pane contentId="main-content" *transloco="let t">
   <ion-menu contentId="main-content" type="overlay">
     <ion-content>
       <ion-list id="inbox-list">
-        <ion-list-header>Inbox</ion-list-header>
-        <ion-note>NOTE</ion-note>
+        <ion-list-header>{{ t("APP_NAME") }}</ion-list-header>
+        <ion-note>{{ t("APP_SLOGAN") }}</ion-note>
 
-        <ion-menu-toggle
-          auto-hide="false"
-          *ngFor="let p of appPages; let i = index"
-        >
-          <ion-item
-            routerDirection="root"
-            [routerLink]="[p.url]"
-            lines="none"
-            detail="false"
-            routerLinkActive="selected"
-          >
-            <ion-icon slot="start" [name]="p.icon" color="primary"></ion-icon>
-            <ion-label>{{ p.title }} </ion-label>
-          </ion-item>
-        </ion-menu-toggle>
+        @for (p of appPages; track $index; let first = $first) {
+          <ion-menu-toggle auto-hide="false">
+            <ion-item
+              routerDirection="root"
+              [routerLink]="[p.url]"
+              lines="none"
+              detail="false"
+              routerLinkActive="selected"
+            >
+              <ion-icon slot="start" [name]="p.icon" color="primary"></ion-icon>
+              <ion-label>{{ t(p.title + ".TITLE") }} </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        }
       </ion-list>
     </ion-content>
   </ion-menu>
 
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>title</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-split-pane>

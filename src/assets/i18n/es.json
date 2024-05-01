@@ -1,5 +1,20 @@
 {
+  "APP_NAME": "Smartnest",
+  "APP_SLOGAN": "Slogan",
+  "COMMON": {},
+  "PRINCIPAL": {
+    "TITLE": "Principal"
+  },
   "BILLBOARD": {
     "TITLE": "Cartelera"
+  },
+  "INCOME": {
+    "TITLE": "Ingresos"
+  },
+  "EXPENSES": {
+    "TITLE": "Egresos"
+  },
+  "REPORTS": {
+    "TITLE": "Reportes"
   }
 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
@@ -13,23 +13,23 @@ import {
   IonIcon,
   IonLabel,
   IonRouterOutlet,
-  IonButtons,
-  IonMenuButton,
-  IonTitle,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { businessOutline } from 'ionicons/icons';
-import { IonHeader, IonToolbar } from '@ionic/angular/standalone';
-import { TranslocoService } from '@jsverse/transloco';
-
+import {
+  barChartOutline,
+  businessOutline,
+  cashOutline,
+  statsChartOutline,
+  walletOutline,
+} from 'ionicons/icons';
+import { TranslocoModule } from '@jsverse/transloco';
+import { LayoutPage } from './layout.component.models';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
   standalone: true,
   imports: [
-    IonTitle,
-    IonButtons,
     RouterLink,
     RouterLinkActive,
     CommonModule,
@@ -44,39 +44,50 @@ import { TranslocoService } from '@jsverse/transloco';
     IonIcon,
     IonLabel,
     IonRouterOutlet,
-    IonHeader,
-    IonToolbar,
-    IonMenuButton,
-    IonTitle,
+    TranslocoModule,
   ],
 })
 export class LayoutComponent {
   // -----------------------------------------------------------------------------------------------------
   // @ Services
   // -----------------------------------------------------------------------------------------------------
-  transloco = inject(TranslocoService);
 
   // -----------------------------------------------------------------------------------------------------
   // @ LOCAL PROPERTIES
   // -----------------------------------------------------------------------------------------------------
-  public appPages = [
+  public appPages: LayoutPage[] = [
+    { title: 'PRINCIPAL', url: '/principal', icon: 'bar-chart-outline' },
     {
-      title: this.transloco.translate('BILLBOARD.TITLE'),
+      title: 'BILLBOARD',
       url: '/billboard',
       icon: 'business-outline',
     },
-    // { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    // { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    // { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    // { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    // { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    {
+      title: 'INCOME',
+      url: '/income',
+      icon: 'cash-outline',
+    },
+    {
+      title: 'EXPENSES',
+      url: '/expenses',
+      icon: 'wallet-outline',
+    },
+    {
+      title: 'REPORTS',
+      url: '/reports',
+      icon: 'stats-chart-outline',
+    },
   ];
-
   // -----------------------------------------------------------------------------------------------------
   // @ CONSTRUCTOR
   // -----------------------------------------------------------------------------------------------------
   constructor() {
-    addIcons({ businessOutline });
-    console.log(this.transloco);
+    addIcons({
+      businessOutline,
+      barChartOutline,
+      cashOutline,
+      walletOutline,
+      statsChartOutline,
+    });
   }
 }

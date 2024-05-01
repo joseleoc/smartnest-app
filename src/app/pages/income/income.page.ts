@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonContent, IonHeader } from '@ionic/angular/standalone';
 import { TranslocoModule } from '@jsverse/transloco';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { RegisterIncomeFormComponent } from './components/register-income-form/register-income-form.component';
 
 @Component({
   selector: 'app-income',
@@ -15,6 +16,7 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     CommonModule,
     TranslocoModule,
     HeaderComponent,
+    RegisterIncomeFormComponent,
   ],
 })
 export class IncomePage {

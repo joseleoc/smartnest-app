@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { HeaderComponent } from './header.component';
+import { PropertySelectorComponent } from './property-selector.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('PropertySelectorComponent', () => {
+  let component: PropertySelectorComponent;
+  let fixture: ComponentFixture<PropertySelectorComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-      imports: [IonicModule.forRoot()],
+      declarations: [ PropertySelectorComponent ],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(PropertySelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -1,7 +1,13 @@
 {
   "APP_NAME": "Smartnest",
   "APP_SLOGAN": "Slogan",
-  "COMMON": {},
+  "COMMON": {
+    "AMOUNT": "Monto",
+    "PROOF_OF_PAYMENT": "Comprobante de pago",
+    "DATE": "Fecha",
+    "OK": "Ok",
+    "CANCEL": "Cancelar"
+  },
   "PRINCIPAL": {
     "TITLE": "Principal"
   },
@@ -16,5 +22,10 @@
   },
   "REPORTS": {
     "TITLE": "Reportes"
+  },
+  "PROPERTY_SELECTOR": "Propiedad",
+  "REGISTER_INCOME_FORM": {
+    "TITLE": "Registrar ingreso",
+    "SUBMIT": "Registrar"
   }
 }

@@ -1,0 +1,10 @@
+<ion-select
+  *transloco="let t"
+  [label]="t('PROPERTY_SELECTOR')"
+  (ionChange)="onSetValue($event.detail.value)"
+  [disabled]="disabled"
+>
+  <ion-select-option value="apple">Apple</ion-select-option>
+  <ion-select-option value="banana">Banana</ion-select-option>
+  <ion-select-option value="orange">Orange</ion-select-option>
+</ion-select>

@@ -2,6 +2,10 @@ ion-menu {
   max-width: 300px;
 }
 
+ion-item {
+  cursor: pointer;
+}
+
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
@@ -120,4 +124,9 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+
+.menu-item-child {
+  --padding-start: 2rem !important
+;
 }

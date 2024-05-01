@@ -23,8 +23,14 @@
   "REPORTS": {
     "TITLE": "Reportes"
   },
+  "CONDOMINIUM": {
+    "TITLE": "Condominio"
+  },
   "PROPERTIES": {
     "TITLE": "Propiedades"
+  },
+  "COMMUNITIES": {
+    "TITLE": "Comunidades"
   },
   "PROPERTY_SELECTOR": "Propiedad",
   "REGISTER_INCOME_FORM": {

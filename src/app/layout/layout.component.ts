@@ -12,13 +12,17 @@ import {
   IonItem,
   IonIcon,
   IonLabel,
+  IonAccordion,
+  IonAccordionGroup,
   IonRouterOutlet,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
+  appsOutline,
   barChartOutline,
   businessOutline,
   cashOutline,
+  homeOutline,
   statsChartOutline,
   walletOutline,
 } from 'ionicons/icons';
@@ -41,8 +45,11 @@ import { LayoutPage } from './layout.component.models';
     IonNote,
     IonMenuToggle,
     IonItem,
+    IonAccordion,
+    IonAccordionGroup,
     IonIcon,
     IonLabel,
+
     IonRouterOutlet,
     TranslocoModule,
   ],
@@ -78,9 +85,12 @@ export class LayoutComponent {
       icon: 'stats-chart-outline',
     },
     {
-      title: 'PROPERTIES',
-      url: '/properties',
+      title: 'CONDOMINIUM',
       icon: 'business-outline',
+      children: [
+        { title: 'COMMUNITIES', icon: 'apps-outline', url: '/communities' },
+        { title: 'PROPERTIES', icon: 'home-outline', url: './properties' },
+      ],
     },
   ];
   // -----------------------------------------------------------------------------------------------------
@@ -93,6 +103,8 @@ export class LayoutComponent {
       cashOutline,
       walletOutline,
       statsChartOutline,
+      homeOutline,
+      appsOutline,
     });
   }
 }

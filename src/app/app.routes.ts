@@ -31,8 +31,4 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/reports/reports.page').then((m) => m.ReportsPage),
   },
-  {
-    path: 'properties',
-    loadComponent: () => import('./pages/properties/properties.page').then( m => m.PropertiesPage)
-  },
 ];

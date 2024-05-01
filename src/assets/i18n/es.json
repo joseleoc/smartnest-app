@@ -23,6 +23,9 @@
   "REPORTS": {
     "TITLE": "Reportes"
   },
+  "PROPERTIES": {
+    "TITLE": "Propiedades"
+  },
   "PROPERTY_SELECTOR": "Propiedad",
   "REGISTER_INCOME_FORM": {
     "TITLE": "Registrar ingreso",

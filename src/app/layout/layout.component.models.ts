@@ -10,4 +10,5 @@ export enum AppPages {
   'EXPENSES' = 'EXPENSES',
   'INCOME' = 'INCOME',
   'REPORTS' = 'REPORTS',
+  'PROPERTIES' = 'PROPERTIES',
 }

@@ -77,6 +77,11 @@ export class LayoutComponent {
       url: '/reports',
       icon: 'stats-chart-outline',
     },
+    {
+      title: 'PROPERTIES',
+      url: '/properties',
+      icon: 'business-outline',
+    },
   ];
   // -----------------------------------------------------------------------------------------------------
   // @ CONSTRUCTOR

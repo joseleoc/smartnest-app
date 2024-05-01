@@ -10,8 +10,8 @@ describe('FolderPage', () => {
   beforeEach(async () => {
     TestBed.overrideComponent(FolderPage, {
       add: {
-        imports: [RouterTestingModule]
-      }
+        imports: [RouterTestingModule],
+      },
     });
 
     fixture = TestBed.createComponent(FolderPage);

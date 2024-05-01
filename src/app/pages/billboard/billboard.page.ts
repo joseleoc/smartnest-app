@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonMenuButton,
-  IonButtons,
-} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonToolbar } from '@ionic/angular/standalone';
 import { TranslocoModule } from '@jsverse/transloco';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-billboard',
@@ -17,14 +10,12 @@ import { TranslocoModule } from '@jsverse/transloco';
   styleUrls: ['./billboard.page.scss'],
   standalone: true,
   imports: [
-    IonContent,
     IonHeader,
-    IonTitle,
+    IonContent,
     IonToolbar,
     CommonModule,
     TranslocoModule,
-    IonMenuButton,
-    IonButtons,
+    HeaderComponent,
   ],
 })
 export class BillboardPage {

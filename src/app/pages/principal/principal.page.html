@@ -1,13 +1,7 @@
 <ion-header *transloco="let t">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ t('PRINCIPAL.TITLE') }}</ion-title>
-  </ion-toolbar>
+  <app-header [title]="t('PRINCIPAL.TITLE')" />
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
   <p style="font-size: 30px">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad magni nisi quo
     necessitatibus? Reprehenderit animi doloribus vero nesciunt cum, suscipit

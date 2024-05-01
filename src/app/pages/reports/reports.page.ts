@@ -9,6 +9,7 @@ import {
   IonButtons,
 } from '@ionic/angular/standalone';
 import { TranslocoModule } from '@jsverse/transloco';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-reports',
@@ -18,12 +19,9 @@ import { TranslocoModule } from '@jsverse/transloco';
   imports: [
     IonContent,
     IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
     TranslocoModule,
-    IonMenuButton,
-    IonButtons,
+    HeaderComponent,
   ],
 })
 export class ReportsPage {

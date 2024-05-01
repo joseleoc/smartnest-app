@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
-  IonMenuButton,
-  IonButtons,
-} from '@ionic/angular/standalone';
+import { IonContent, IonHeader } from '@ionic/angular/standalone';
 import { TranslocoModule } from '@jsverse/transloco';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-income',
@@ -18,12 +12,9 @@ import { TranslocoModule } from '@jsverse/transloco';
   imports: [
     IonContent,
     IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
     TranslocoModule,
-    IonMenuButton,
-    IonButtons,
+    HeaderComponent,
   ],
 })
 export class IncomePage {

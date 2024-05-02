@@ -15,9 +15,14 @@ import {
   IonAccordion,
   IonAccordionGroup,
   IonRouterOutlet,
+  IonFab,
+  IonFabButton,
+  IonFabList,
+  IonText,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
+  add,
   appsOutline,
   barChartOutline,
   businessOutline,
@@ -34,6 +39,8 @@ import { LayoutPage } from './layout.component.models';
   styleUrls: ['./layout.component.scss'],
   standalone: true,
   imports: [
+    IonText,
+    IonFabList,
     RouterLink,
     RouterLinkActive,
     CommonModule,
@@ -49,7 +56,6 @@ import { LayoutPage } from './layout.component.models';
     IonAccordionGroup,
     IonIcon,
     IonLabel,
-
     IonRouterOutlet,
     TranslocoModule,
   ],
@@ -103,8 +109,8 @@ export class LayoutComponent {
       cashOutline,
       walletOutline,
       statsChartOutline,
-      homeOutline,
       appsOutline,
+      homeOutline,
     });
   }
 }

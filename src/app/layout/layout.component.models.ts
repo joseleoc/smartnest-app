@@ -14,4 +14,5 @@ export enum AppPages {
   'CONDOMINIUM' = 'CONDOMINIUM',
   'PROPERTIES' = 'PROPERTIES',
   'COMMUNITIES' = 'COMMUNITIES',
+  'TRANSACTIONS' = 'Transactions',
 }

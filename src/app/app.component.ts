@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonApp } from '@ionic/angular/standalone';
 import { LayoutComponent } from './layout/layout.component';
+import { IconsService } from './services/icons/icons.service';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,13 @@ export class AppComponent {
   // -----------------------------------------------------------------------------------------------------
   // @ Services
   // -----------------------------------------------------------------------------------------------------
+  private iconsService = inject(IconsService);
   // -----------------------------------------------------------------------------------------------------
   // @ CONSTRUCTOR
   // -----------------------------------------------------------------------------------------------------
+  constructor() {
+    this.iconsService.addIonicIcons();
+  }
   // -----------------------------------------------------------------------------------------------------
   // @ LIFECYCLE HOOKS
   // -----------------------------------------------------------------------------------------------------

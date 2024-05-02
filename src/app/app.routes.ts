@@ -37,5 +37,26 @@ export const routes: Routes = [
       import('./pages/transactions/transactions.page').then(
         (m) => m.TransactionsPage,
       ),
+    children: [
+      {
+        path: 'register-income',
+        loadComponent: () =>
+          import(
+            './pages/transactions/components/register-income/register-income.component'
+          ).then((m) => m.RegisterIncomeComponent),
+      },
+      {
+        path: 'register-expense',
+        loadComponent: () =>
+          import(
+            './pages/transactions/components/register-expense/register-expense.component'
+          ).then((m) => m.RegisterExpenseComponent),
+      },
+      {
+        path: '',
+        redirectTo: 'register-income',
+        pathMatch: 'full',
+      },
+    ],
   },
 ];

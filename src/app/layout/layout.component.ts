@@ -15,22 +15,9 @@ import {
   IonAccordion,
   IonAccordionGroup,
   IonRouterOutlet,
-  IonFab,
-  IonFabButton,
   IonFabList,
   IonText,
 } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import {
-  add,
-  appsOutline,
-  barChartOutline,
-  businessOutline,
-  cashOutline,
-  homeOutline,
-  statsChartOutline,
-  walletOutline,
-} from 'ionicons/icons';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LayoutPage } from './layout.component.models';
 @Component({
@@ -70,6 +57,7 @@ export class LayoutComponent {
   // -----------------------------------------------------------------------------------------------------
   public appPages: LayoutPage[] = [
     { title: 'PRINCIPAL', url: '/principal', icon: 'bar-chart-outline' },
+    { title: 'TRANSACTIONS', url: '/transactions', icon: 'card-outline' },
     {
       title: 'BILLBOARD',
       url: '/billboard',
@@ -102,15 +90,5 @@ export class LayoutComponent {
   // -----------------------------------------------------------------------------------------------------
   // @ CONSTRUCTOR
   // -----------------------------------------------------------------------------------------------------
-  constructor() {
-    addIcons({
-      businessOutline,
-      barChartOutline,
-      cashOutline,
-      walletOutline,
-      statsChartOutline,
-      appsOutline,
-      homeOutline,
-    });
-  }
+  constructor() {}
 }

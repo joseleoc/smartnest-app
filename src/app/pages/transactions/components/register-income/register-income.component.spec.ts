@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterIncomeFormComponent } from './register-income-form.component';
+import { RegisterIncomeComponent } from './register-income.component';
 
-describe('RegisterIncomeFormComponent', () => {
-  let component: RegisterIncomeFormComponent;
-  let fixture: ComponentFixture<RegisterIncomeFormComponent>;
+describe('RegisterIncomeComponent', () => {
+  let component: RegisterIncomeComponent;
+  let fixture: ComponentFixture<RegisterIncomeComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RegisterIncomeFormComponent],
+      declarations: [RegisterIncomeComponent],
       imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RegisterIncomeFormComponent);
+    fixture = TestBed.createComponent(RegisterIncomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

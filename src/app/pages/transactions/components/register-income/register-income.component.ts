@@ -1,36 +1,33 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+
 import {
   IonItem,
   IonInput,
   IonButton,
-  IonLabel,
   IonText,
   IonDatetimeButton,
   IonDatetime,
   IonModal,
   IonList,
-  IonAccordion,
-  IonAccordionGroup,
+  IonContent,
 } from '@ionic/angular/standalone';
 import { TranslocoModule } from '@jsverse/transloco';
 import { PropertySelectorComponent } from 'src/app/components/property-selector/property-selector.component';
 
 @Component({
-  selector: 'app-register-income-form',
-  templateUrl: './register-income-form.component.html',
-  styleUrls: ['./register-income-form.component.scss'],
+  selector: 'app-register-income',
+  templateUrl: './register-income.component.html',
+  styleUrls: ['./register-income.component.scss'],
   standalone: true,
   imports: [
-    IonAccordion,
-    IonAccordionGroup,
+    ReactiveFormsModule,
+    IonContent,
     IonList,
     IonText,
-    ReactiveFormsModule,
     IonInput,
     IonItem,
     IonButton,
-    IonLabel,
     IonDatetimeButton,
     IonDatetime,
     IonModal,
@@ -38,7 +35,7 @@ import { PropertySelectorComponent } from 'src/app/components/property-selector/
     TranslocoModule,
   ],
 })
-export class RegisterIncomeFormComponent {
+export class RegisterIncomeComponent {
   // -----------------------------------------------------------------------------------------------------
   // @ Services
   // -----------------------------------------------------------------------------------------------------

@@ -1,13 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>transactions</ion-title>
-  </ion-toolbar>
+<!-- <ion-header *transloco="let t">
+  <app-header [title]="t('TRANSACTIONS.TITLE')" />
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content class="ion-padding">
+  <p style="font-size: 30px">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad magni nisi quo
+    necessitatibus? Reprehenderit animi doloribus vero nesciunt cum, suscipit
+    praesentium quibusdam ipsa sequi laudantium reiciendis eius fugit nihil
+    dolores.
+  </p>
+</ion-content>
+
+<app-fab-button /> -->
+
+<ion-tabs (ionTabsDidChange)="test($event)">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">transactions</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{title()}}</ion-title>
     </ion-toolbar>
   </ion-header>
-</ion-content>
+  <ion-tab-bar slot="top">
+    <ion-tab-button tab="register-income">
+      <ion-icon name="play-circle"></ion-icon>
+      Register income
+    </ion-tab-button>
+    <ion-tab-button tab="register-expense">
+      <ion-icon name="play-circle"></ion-icon>
+      Register expense
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

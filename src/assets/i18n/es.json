@@ -11,14 +11,25 @@
   "PRINCIPAL": {
     "TITLE": "Principal"
   },
+  "TRANSACTIONS": {
+    "TITLE": "Transacciones"
+  },
   "BILLBOARD": {
     "TITLE": "Cartelera"
   },
   "INCOME": {
     "TITLE": "Ingresos"
   },
+  "REGISTER_INCOME": {
+    "TITLE": "Registrar ingreso",
+    "SUBMIT": "Registrar"
+  },
   "EXPENSES": {
     "TITLE": "Egresos"
+  },
+  "REGISTER_EXPENSE": {
+    "TITLE": "Registrar egreso",
+    "SUBMIT": "Registrar"
   },
   "REPORTS": {
     "TITLE": "Reportes"
@@ -32,9 +43,5 @@
   "COMMUNITIES": {
     "TITLE": "Comunidades"
   },
-  "PROPERTY_SELECTOR": "Propiedad",
-  "REGISTER_INCOME_FORM": {
-    "TITLE": "Registrar ingreso",
-    "SUBMIT": "Registrar"
-  }
+  "PROPERTY_SELECTOR": "Propiedad"
 }

@@ -36,8 +36,9 @@ export class PropertySelectorComponent {
   onTouched = () => {};
 
   touched = false;
-
   disabled = false;
+  required = false;
+
   constructor() {}
 
   // -----------------------------------------------------------------------------------------------------
@@ -83,14 +84,6 @@ export class PropertySelectorComponent {
 
   /** Used in angular's forms to validate the control. */
   validate(control: AbstractControl): ValidationErrors | null | undefined {
-    const quantity = control.value;
-    if (quantity <= 0) {
-      return {
-        mustBePositive: {
-          quantity,
-        },
-      };
-    }
-    return null;
+    return control.invalid ? { internal: true } : null;
   }
 }

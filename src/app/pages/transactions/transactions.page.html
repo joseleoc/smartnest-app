@@ -1,4 +1,4 @@
-<ion-tabs (ionTabsDidChange)="test($event)">
+<ion-tabs (ionTabsDidChange)="test($event)" *transloco="let t">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
@@ -10,11 +10,11 @@
   <ion-tab-bar slot="top">
     <ion-tab-button tab="register-income">
       <ion-icon name="wallet-outline"></ion-icon>
-      Register income
+      {{t('REGISTER_INCOME.TITLE')}}
     </ion-tab-button>
     <ion-tab-button tab="register-expense">
       <ion-icon name="cash-outline"></ion-icon>
-      Register expense
+      {{t('REGISTER_EXPENSE.TITLE')}}
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

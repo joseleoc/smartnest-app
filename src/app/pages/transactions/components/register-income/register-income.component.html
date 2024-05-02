@@ -8,8 +8,29 @@
           required
           [formControl]="form.controls.amount"
           type="number"
+          min="0"
         ></ion-input>
       </ion-item>
+      @if (form.controls.amount.touched) {
+        @if (form.controls.amount.hasError("min")) {
+          <ion-note
+            color="danger"
+            class="ion-padding-horizontal ion-padding-bottom"
+          >
+            {{ t("VALIDATION.MIN_1") }}
+            {{ form.controls.amount.getError("min").min }},
+            {{ t("VALIDATION.MIN_2") }}
+            {{ form.controls.amount.getError("min").actual }}
+          </ion-note>
+        } @else if (form.controls.amount.hasError("required")) {
+          <ion-note
+            color="danger"
+            class="ion-padding-horizontal ion-padding-bottom"
+          >
+            {{ t("VALIDATION.REQUIRED") }}
+          </ion-note>
+        }
+      }
       <ion-item>
         <ion-input
           [label]="t('COMMON.PROOF_OF_PAYMENT')"
@@ -19,10 +40,28 @@
           type="text"
         ></ion-input>
       </ion-item>
+      @if (
+        form.controls.ticket.touched &&
+        form.controls.ticket.hasError("required")
+      ) {
+        <ion-note
+          color="danger"
+          class="ion-padding-horizontal ion-padding-bottom"
+        >
+          {{ t("VALIDATION.REQUIRED") }}
+        </ion-note>
+      }
 
-      <ion-item>
-        <ion-datetime-button datetime="datetime"></ion-datetime-button>
-        <ion-modal [keepContentsMounted]="true">
+      <ion-item (click)="showCalendar()">
+        <ion-datetime-button
+          datetime="datetime"
+          (click)="$event.stopPropagation()"
+        ></ion-datetime-button>
+        <ion-modal
+          [keepContentsMounted]="true"
+          [isOpen]="isCalendarOpen()"
+          (didDismiss)="closeCalendar()"
+        >
           <ng-template>
             <ion-datetime
               id="datetime"
@@ -38,11 +77,33 @@
           </ng-template>
         </ion-modal>
       </ion-item>
+      @if (
+        form.controls.date.touched && form.controls.date.hasError("required")
+      ) {
+        <ion-note
+          color="danger"
+          class="ion-padding-horizontal ion-padding-bottom"
+        >
+          {{ t("VALIDATION.REQUIRED") }}
+        </ion-note>
+      }
 
       <ion-item>
         <app-property-selector [formControl]="form.controls.property" />
       </ion-item>
+      @if (
+        form.controls.property.touched &&
+        form.controls.property.hasError("required")
+      ) {
+        <ion-note
+          color="danger"
+          class="ion-padding-horizontal ion-padding-bottom"
+        >
+          {{ t("VALIDATION.REQUIRED") }}
+        </ion-note>
+      }
     </ion-list>
+
     <ion-button block color="primary" type="submit" class="submitButton">
       {{ t("REGISTER_INCOME.SUBMIT") }}
     </ion-button>

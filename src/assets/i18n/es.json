@@ -43,5 +43,10 @@
   "COMMUNITIES": {
     "TITLE": "Comunidades"
   },
-  "PROPERTY_SELECTOR": "Propiedad"
+  "PROPERTY_SELECTOR": "Propiedad",
+  "VALIDATION": {
+    "REQUIRED": "Requerido",
+    "MIN_1": "Valor minimo:",
+    "MIN_2": " valor actual:"
+  }
 }

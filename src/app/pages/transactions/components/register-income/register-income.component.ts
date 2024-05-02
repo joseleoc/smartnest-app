@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import {
@@ -11,6 +11,8 @@ import {
   IonModal,
   IonList,
   IonContent,
+  IonLabel,
+  IonNote,
 } from '@ionic/angular/standalone';
 import { TranslocoModule } from '@jsverse/transloco';
 import { PropertySelectorComponent } from 'src/app/components/property-selector/property-selector.component';
@@ -21,6 +23,7 @@ import { PropertySelectorComponent } from 'src/app/components/property-selector/
   styleUrls: ['./register-income.component.scss'],
   standalone: true,
   imports: [
+    IonLabel,
     ReactiveFormsModule,
     IonContent,
     IonList,
@@ -33,6 +36,7 @@ import { PropertySelectorComponent } from 'src/app/components/property-selector/
     IonModal,
     PropertySelectorComponent,
     TranslocoModule,
+    IonNote,
   ],
 })
 export class RegisterIncomeComponent {
@@ -45,11 +49,13 @@ export class RegisterIncomeComponent {
   // @ Local properties
   // -----------------------------------------------------------------------------------------------------
   form = this.formBuilder.group({
-    amount: [0, [Validators.required]],
+    amount: [0, [Validators.required, Validators.min(1)]],
     ticket: ['', [Validators.required]],
     date: [new Date().toISOString(), [Validators.required]],
     property: ['', [Validators.required]],
   });
+
+  isCalendarOpen = signal(false);
   // -----------------------------------------------------------------------------------------------------
   // @ Constructor
   // -----------------------------------------------------------------------------------------------------
@@ -59,6 +65,15 @@ export class RegisterIncomeComponent {
   // @ Public methods
   // -----------------------------------------------------------------------------------------------------
   onSubmit() {
-    console.log(this.form.value);
+    console.log(this.form);
+    this.form.markAllAsTouched();
+  }
+
+  showCalendar() {
+    this.isCalendarOpen.set(true);
+  }
+
+  closeCalendar() {
+    this.isCalendarOpen.set(false);
   }
 }

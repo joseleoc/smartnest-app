@@ -1,51 +1,13 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import {
-  IonSplitPane,
-  IonMenu,
-  IonContent,
-  IonList,
-  IonListHeader,
-  IonNote,
-  IonMenuToggle,
-  IonItem,
-  IonIcon,
-  IonLabel,
-  IonAccordion,
-  IonAccordionGroup,
-  IonRouterOutlet,
-  IonFabList,
-  IonText,
-} from '@ionic/angular/standalone';
-import { TranslocoModule } from '@jsverse/transloco';
+
 import { LayoutPage } from './layout.component.models';
+import { LayoutComponentImports } from './layout.imports';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
   standalone: true,
-  imports: [
-    IonText,
-    IonFabList,
-    RouterLink,
-    RouterLinkActive,
-    CommonModule,
-    IonSplitPane,
-    IonMenu,
-    IonContent,
-    IonList,
-    IonListHeader,
-    IonNote,
-    IonMenuToggle,
-    IonItem,
-    IonAccordion,
-    IonAccordionGroup,
-    IonIcon,
-    IonLabel,
-    IonRouterOutlet,
-    TranslocoModule,
-  ],
+  imports: LayoutComponentImports,
 })
 export class LayoutComponent {
   // -----------------------------------------------------------------------------------------------------

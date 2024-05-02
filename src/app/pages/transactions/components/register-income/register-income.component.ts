@@ -1,50 +1,21 @@
-import { Component, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
-import {
-  IonItem,
-  IonInput,
-  IonButton,
-  IonText,
-  IonDatetimeButton,
-  IonDatetime,
-  IonModal,
-  IonList,
-  IonContent,
-  IonLabel,
-  IonNote,
-} from '@ionic/angular/standalone';
-import { TranslocoModule } from '@jsverse/transloco';
-import { PropertySelectorComponent } from 'src/app/components/property-selector/property-selector.component';
+import { Component, inject, signal } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { CurrencyService } from 'src/app/services/currency/currency.service';
+import { RegisterIncomeComponentImports } from './register-income.imports';
 
 @Component({
   selector: 'app-register-income',
   templateUrl: './register-income.component.html',
   styleUrls: ['./register-income.component.scss'],
   standalone: true,
-  imports: [
-    IonLabel,
-    ReactiveFormsModule,
-    IonContent,
-    IonList,
-    IonText,
-    IonInput,
-    IonItem,
-    IonButton,
-    IonDatetimeButton,
-    IonDatetime,
-    IonModal,
-    PropertySelectorComponent,
-    TranslocoModule,
-    IonNote,
-  ],
+  imports: RegisterIncomeComponentImports,
 })
 export class RegisterIncomeComponent {
   // -----------------------------------------------------------------------------------------------------
   // @ Services
   // -----------------------------------------------------------------------------------------------------
-  formBuilder = new FormBuilder();
-
+  private formBuilder = new FormBuilder();
+  private currencyService = inject(CurrencyService);
   // -----------------------------------------------------------------------------------------------------
   // @ Local properties
   // -----------------------------------------------------------------------------------------------------
@@ -56,6 +27,7 @@ export class RegisterIncomeComponent {
   });
 
   isCalendarOpen = signal(false);
+  currencySymbol$ = this.currencyService.currencySymbol$;
   // -----------------------------------------------------------------------------------------------------
   // @ Constructor
   // -----------------------------------------------------------------------------------------------------
@@ -67,6 +39,9 @@ export class RegisterIncomeComponent {
   onSubmit() {
     console.log(this.form);
     this.form.markAllAsTouched();
+    if (this.form.valid) {
+      console.log('form valid');
+    }
   }
 
   showCalendar() {

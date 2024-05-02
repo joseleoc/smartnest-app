@@ -9,7 +9,9 @@
           [formControl]="form.controls.amount"
           type="number"
           min="0"
-        ></ion-input>
+        >
+          <ion-label slot="start"> {{ currencySymbol$ | async }} </ion-label>
+        </ion-input>
       </ion-item>
       @if (form.controls.amount.touched) {
         @if (form.controls.amount.hasError("min")) {
@@ -52,11 +54,21 @@
         </ion-note>
       }
 
-      <ion-item (click)="showCalendar()">
-        <ion-datetime-button
-          datetime="datetime"
-          (click)="$event.stopPropagation()"
-        ></ion-datetime-button>
+      <ion-item (click)="showCalendar()" class="item-padding-vertical">
+        <div class="date-input">
+          <ion-label
+            [ngStyle]="{
+              color: form.controls.date.errors
+                ? 'var(--ion-color-danger, #c5000f)'
+                : 'inherit'
+            }"
+            >Fecha</ion-label
+          >
+          <ion-datetime-button
+            datetime="datetime"
+            (click)="$event.stopPropagation()"
+          ></ion-datetime-button>
+        </div>
         <ion-modal
           [keepContentsMounted]="true"
           [isOpen]="isCalendarOpen()"
@@ -104,7 +116,7 @@
       }
     </ion-list>
 
-    <ion-button block color="primary" type="submit" class="submitButton">
+    <ion-button block color="primary" type="submit" class="submit-button">
       {{ t("REGISTER_INCOME.SUBMIT") }}
     </ion-button>
   </form>

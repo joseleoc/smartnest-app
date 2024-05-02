@@ -11,8 +11,21 @@ ion-list {
   justify-content: center;
 }
 
-.submitButton {
+.submit-button {
   width: 50%;
   max-width: 300px;
   align-self: center;
+}
+
+.date-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.875rem;
+  padding: 0 0.3rem;
+}
+
+.item-padding-vertical {
+  --padding-top: 0.5rem;
+  --padding-bottom: 0.5rem;
 }

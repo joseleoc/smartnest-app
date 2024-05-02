@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   IonFab,
   IonFabButton,
   IonIcon,
   IonFabList,
 } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { add, cashOutline, walletOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-fab-button',
@@ -16,11 +14,5 @@ import { add, cashOutline, walletOutline } from 'ionicons/icons';
   imports: [IonFab, IonFabButton, IonIcon, IonFabList],
 })
 export class FabButtonComponent {
-  constructor() {
-    addIcons({
-      cashOutline,
-      walletOutline,
-      add,
-    });
-  }
+  constructor() {}
 }

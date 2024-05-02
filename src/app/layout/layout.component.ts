@@ -66,12 +66,12 @@ export class LayoutComponent {
     {
       title: 'INCOME',
       url: '/income',
-      icon: 'cash-outline',
+      icon: 'wallet-outline',
     },
     {
       title: 'EXPENSES',
       url: '/expenses',
-      icon: 'wallet-outline',
+      icon: 'cash-outline',
     },
     {
       title: 'REPORTS',

@@ -20,6 +20,7 @@ export class IconsService {
 
   addIonicIcons() {
     addIcons({
+      add,
       playCircle,
       businessOutline,
       barChartOutline,

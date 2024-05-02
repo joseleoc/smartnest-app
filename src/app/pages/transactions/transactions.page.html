@@ -1,18 +1,3 @@
-<!-- <ion-header *transloco="let t">
-  <app-header [title]="t('TRANSACTIONS.TITLE')" />
-</ion-header>
-
-<ion-content class="ion-padding">
-  <p style="font-size: 30px">
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad magni nisi quo
-    necessitatibus? Reprehenderit animi doloribus vero nesciunt cum, suscipit
-    praesentium quibusdam ipsa sequi laudantium reiciendis eius fugit nihil
-    dolores.
-  </p>
-</ion-content>
-
-<app-fab-button /> -->
-
 <ion-tabs (ionTabsDidChange)="test($event)">
   <ion-header>
     <ion-toolbar>
@@ -24,11 +9,11 @@
   </ion-header>
   <ion-tab-bar slot="top">
     <ion-tab-button tab="register-income">
-      <ion-icon name="play-circle"></ion-icon>
+      <ion-icon name="wallet-outline"></ion-icon>
       Register income
     </ion-tab-button>
     <ion-tab-button tab="register-expense">
-      <ion-icon name="play-circle"></ion-icon>
+      <ion-icon name="cash-outline"></ion-icon>
       Register expense
     </ion-tab-button>
   </ion-tab-bar>

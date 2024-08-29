@@ -1,8 +1,10 @@
 import useTheme from "@/hooks/useTheme";
 import { ThemeProps } from "@/types";
 import { Text as RNText, TextProps as RNTextProps } from "react-native";
+import { Theme } from "@/constants/theme";
 
-export type TextProps = RNTextProps & ThemeProps;
+export type TextProps = RNTextProps &
+  ThemeProps & { color?: keyof Theme["colors"] };
 
 export default function Text(props: TextProps) {
   // --- Hooks -----------------------------------------------------------------
@@ -12,7 +14,9 @@ export default function Text(props: TextProps) {
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const { style, lightColor, darkColor, children, ...otherProps } = props;
+  const { style, lightColor, darkColor, children, color, ...otherProps } =
+    props;
+
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -28,7 +32,7 @@ export default function Text(props: TextProps) {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <RNText style={[{ color: text }, style]} {...otherProps}>
+    <RNText style={[{ color: color ?? text }, style]} {...otherProps}>
       {children}
     </RNText>
   );

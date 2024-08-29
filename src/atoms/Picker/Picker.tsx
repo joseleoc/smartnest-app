@@ -1,14 +1,17 @@
-import Button from "@/atoms/Button";
-import Text from "@/atoms/Text";
-import FloatActionButton from "@/atoms/FloatActionButton";
-import SafeAreaView from "@/atoms/SafeAreaView";
-import ActionsBottomSheet from "@/templates/ActionsBottomSheet";
+import { Picker as RNPicker } from "@react-native-picker/picker";
+import { useState } from "react";
 
-export default function Home() {
+type PickerProps = {
+  selectedValue: string;
+  setSelectedValue: (itemValue: string, itemIndex?: number) => void;
+};
+
+export default function Picker(props: PickerProps) {
   // --- Hooks -----------------------------------------------------------------
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
+  const { selectedValue, setSelectedValue } = props;
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -24,12 +27,9 @@ export default function Home() {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <SafeAreaView>
-      <Button>
-        <Text>Home</Text>
-      </Button>
-      <FloatActionButton />
-      <ActionsBottomSheet />
-    </SafeAreaView>
+    <RNPicker selectedValue={selectedValue} onValueChange={setSelectedValue}>
+      <RNPicker.Item label="Java" value="java" />
+      <RNPicker.Item label="JavaScript" value="js" />
+    </RNPicker>
   );
 }

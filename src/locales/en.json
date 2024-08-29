@@ -1,3 +1,9 @@
 {
-  "test": "Test"
+  "test": "Test",
+  "HOME": {
+    "TITLE": "Home"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings"
+  }
 }

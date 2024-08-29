@@ -1,14 +1,18 @@
-import Button from "@/atoms/Button";
-import FloatActionButton from "@/atoms/FloatActionButton";
-import SafeAreaView from "@/atoms/SafeAreaView";
-import ActionsBottomSheet from "@/templates/ActionsBottomSheet";
-import { Text } from "react-native";
+import useTheme from "@/hooks/useTheme";
+import { ThemeProps } from "@/types";
+import { Text as RNText, TextProps as RNTextProps } from "react-native";
 
-export default function Home() {
+export type TextProps = RNTextProps & ThemeProps;
+
+export default function Text(props: TextProps) {
   // --- Hooks -----------------------------------------------------------------
+  const {
+    colors: { text },
+  } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
+  const { style, lightColor, darkColor, children, ...otherProps } = props;
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -24,12 +28,8 @@ export default function Home() {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <SafeAreaView>
-      <Button>
-        <Text>Home</Text>
-      </Button>
-      <FloatActionButton />
-      <ActionsBottomSheet />
-    </SafeAreaView>
+    <RNText style={[{ color: text }, style]} {...otherProps}>
+      {children}
+    </RNText>
   );
 }

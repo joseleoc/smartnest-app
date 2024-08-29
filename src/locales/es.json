@@ -1,3 +1,9 @@
 {
-  "test": "Prueba"
+  "test": "Prueba",
+  "HOME": {
+    "TITLE": "Inicio"
+  },
+  "SETTINGS": {
+    "TITLE": "Ajustes"
+  }
 }

@@ -27,12 +27,12 @@ export default function Button(props: ButtonProps) {
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
-  const { style, pressStyle, children } = props;
+  const { style, pressStyle, children, ...otherProps } = props;
   // --- END: Data and handlers ------------------------------------------------
 
   return (
     <Pressable
-      onPress={() => {}}
+      {...otherProps}
       style={({ pressed }) => [
         { backgroundColor: colors.primary },
         styles.buttonShadow,

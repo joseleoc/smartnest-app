@@ -1,27 +1,21 @@
+import { Picker as RNPicker } from "@react-native-picker/picker";
+import { styles } from "./Picker.styles";
 import useTheme from "@/hooks/useTheme";
-import { ThemeProps } from "@/types";
-import {
-  Text as RNText,
-  TextProps as RNTextProps,
-  useColorScheme,
-} from "react-native";
-import { Theme } from "@/constants/theme";
 import { useEffect, useState } from "react";
 
-export type TextProps = RNTextProps &
-  ThemeProps & { colorName?: keyof Theme["colors"] };
+type PickerProps<T> = {
+  selectedValue: T;
+  setSelectedValue: (itemValue: T, itemIndex?: number) => void;
+  values: { label: string; value: T }[];
+};
 
-export default function Text(props: TextProps) {
+export default function Picker<T>(props: PickerProps<T>) {
   // --- Hooks -----------------------------------------------------------------
-  const { colors } = useTheme();
-  const colorScheme = useColorScheme();
-  const [colorText, setColorText] = useState(colors.text);
+  const { spacing } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const { style, lightColor, darkColor, children, colorName, ...otherProps } =
-    props;
-
+  const { selectedValue, setSelectedValue, values } = props;
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -32,18 +26,23 @@ export default function Text(props: TextProps) {
 
   // --- Side effects ----------------------------------------------------------
   useEffect(() => {
-    if (colorName != null && colors[colorName] != null) {
-      setColorText(colors[colorName]);
-    }
-  }, [colorScheme, colorName]);
+    console.log(values);
+  }, [values]);
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <RNText style={[{ color: colorText }, style]} {...otherProps}>
-      {children}
-    </RNText>
+    <RNPicker
+      selectedValue={selectedValue}
+      onValueChange={setSelectedValue}
+      mode="dropdown"
+      style={[styles.picker, { padding: spacing.spacingSmall }]}
+    >
+      {values.map(({ label, value }) => (
+        <RNPicker.Item label={label} value={value} key={String(value)} />
+      ))}
+    </RNPicker>
   );
 }

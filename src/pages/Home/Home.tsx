@@ -1,8 +1,8 @@
 import Button from "@/atoms/Button";
+import Text from "@/atoms/Text";
 import FloatActionButton from "@/atoms/FloatActionButton";
 import SafeAreaView from "@/atoms/SafeAreaView";
 import ActionsBottomSheet from "@/templates/ActionsBottomSheet";
-import { Text } from "react-native";
 
 export default function Home() {
   // --- Hooks -----------------------------------------------------------------
@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <SafeAreaView>
       <Button>
-        <Text>Home</Text>
+        <Text colorName="primaryContrast">Home</Text>
       </Button>
       <FloatActionButton />
       <ActionsBottomSheet />

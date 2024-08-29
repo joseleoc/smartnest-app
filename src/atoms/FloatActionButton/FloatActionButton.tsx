@@ -3,7 +3,6 @@ import { styles } from "./FloatActionButton.styles";
 import useTheme from "@/hooks/useTheme";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useStore } from "@/stores/zustand";
-import { useEffect } from "react";
 
 export default function FloatActionButton() {
   // --- Hooks -----------------------------------------------------------------
@@ -21,7 +20,6 @@ export default function FloatActionButton() {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
-  useEffect(() => {}, [isActionBottomSheetOpen]);
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
@@ -41,6 +39,11 @@ export default function FloatActionButton() {
       <AntDesign
         name="plus"
         size={spacing.textMedium}
+        style={{
+          color: colors.primaryContrast,
+          width: spacing.textMedium,
+          height: spacing.textMedium,
+        }}
         color={colors.primaryContrast}
       />
     </Button>

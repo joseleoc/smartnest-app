@@ -5,14 +5,14 @@ import useTheme from "@/hooks/useTheme";
 import View, { ViewProps } from "@/atoms/View";
 import { styles } from "./SafeAreaView.styles";
 
-export default function SafeAreaView(props: ViewProps) {
+function SafeAreaView(props: ViewProps, ref: any) {
   const { children } = props;
   // --- Hooks -----------------------------------------------------------------
   const insets = useSafeAreaInsets();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
-  const { style, lightColor, darkColor, ...otherProps } = props;
+  const { style, lightColor, darkColor, focusable, ...otherProps } = props;
   const { colors, spacing } = useTheme();
   // --- END: Data and handlers ------------------------------------------------
 
@@ -34,3 +34,7 @@ export default function SafeAreaView(props: ViewProps) {
     </View>
   );
 }
+
+const SafeAreaViewFR = React.forwardRef(SafeAreaView);
+
+export default SafeAreaViewFR;

@@ -1,21 +1,13 @@
-import { Picker as RNPicker } from "@react-native-picker/picker";
-import { styles } from "./Picker.styles";
-import useTheme from "@/hooks/useTheme";
-import { useEffect, useState } from "react";
+import Picker from "@/atoms/Picker/Picker";
+import { useStore } from "@/stores/zustand";
+import { LanguageOptions } from "./LanguagePicker.constants";
 
-type PickerProps<T> = {
-  selectedValue: T;
-  setSelectedValue: (itemValue: T, itemIndex?: number) => void;
-  values: { label: string; value: T }[];
-};
-
-export default function Picker<T>(props: PickerProps<T>) {
+export default function LanguagePicker() {
   // --- Hooks -----------------------------------------------------------------
-  const { spacing } = useTheme();
+  const { selectedLanguage, setSelectedLanguage } = useStore();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const { selectedValue, setSelectedValue, values } = props;
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -25,24 +17,17 @@ export default function Picker<T>(props: PickerProps<T>) {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
+
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <RNPicker
-      selectedValue={selectedValue}
-      onValueChange={setSelectedValue}
-      mode="dropdown"
-      style={[styles.picker, { padding: spacing.spacingSmall }]}
-    >
-      {values.map(({ label, value }) => (
-        <RNPicker.Item label={label} value={value} key={String(value)} />
-      ))}
-    </RNPicker>
+    <Picker
+      setSelectedValue={setSelectedLanguage}
+      selectedValue={selectedLanguage}
+      values={LanguageOptions}
+    />
   );
 }

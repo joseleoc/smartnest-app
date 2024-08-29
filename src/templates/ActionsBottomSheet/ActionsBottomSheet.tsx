@@ -1,12 +1,7 @@
-import { Platform } from "react-native";
+import { Platform, Pressable, TouchableWithoutFeedback } from "react-native";
 import { useStore } from "@/stores/zustand";
 import { useEffect, useMemo, useState } from "react";
-import {
-  Modal,
-  TouchableWithoutFeedback,
-  Animated,
-  LayoutChangeEvent,
-} from "react-native";
+import { Modal, Animated, LayoutChangeEvent } from "react-native";
 
 import useTheme from "@/hooks/useTheme";
 
@@ -80,7 +75,7 @@ export default function ActionsButtonSheet() {
             ]}
           >
             <View onLayout={handleLayoutChange}>
-              <TouchableWithoutFeedback>
+              <Pressable onPress={() => {}}>
                 <View
                   style={[
                     {
@@ -99,7 +94,7 @@ export default function ActionsButtonSheet() {
                     </IconItem>
                   ))}
                 </View>
-              </TouchableWithoutFeedback>
+              </Pressable>
             </View>
           </Animated.View>
         </SafeAreaView>

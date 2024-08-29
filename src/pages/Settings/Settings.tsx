@@ -1,10 +1,13 @@
 import Button from "@/atoms/Button";
 import Text from "@/atoms/Text";
 import SafeAreaView from "@/atoms/SafeAreaView";
-import Picker from "@/atoms/Picker/Picker";
+import LanguagePicker from "@/molecules/LanguagePicker";
+import { styles } from "./Settings.styles";
+import useTheme from "@/hooks/useTheme";
 
 export default function Settings() {
   // --- Hooks -----------------------------------------------------------------
+  const { spacing } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -22,10 +25,10 @@ export default function Settings() {
   // --- Data and handlers -----------------------------------------------------
   // --- END: Data and handlers ------------------------------------------------
   return (
-    <SafeAreaView>
-      <Picker />
+    <SafeAreaView style={[styles.container, { gap: spacing.spacingMedium }]}>
+      <LanguagePicker />
       <Button>
-        <Text color="primaryContrast">Settings</Text>
+        <Text colorName="primaryContrast">Settings</Text>
       </Button>
     </SafeAreaView>
   );

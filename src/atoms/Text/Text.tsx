@@ -1,20 +1,25 @@
 import useTheme from "@/hooks/useTheme";
 import { ThemeProps } from "@/types";
-import { Text as RNText, TextProps as RNTextProps } from "react-native";
+import {
+  Text as RNText,
+  TextProps as RNTextProps,
+  useColorScheme,
+} from "react-native";
 import { Theme } from "@/constants/theme";
+import { useEffect, useState } from "react";
 
 export type TextProps = RNTextProps &
-  ThemeProps & { color?: keyof Theme["colors"] };
+  ThemeProps & { colorName?: keyof Theme["colors"] };
 
 export default function Text(props: TextProps) {
   // --- Hooks -----------------------------------------------------------------
-  const {
-    colors: { text },
-  } = useTheme();
+  const { colors } = useTheme();
+  const colorScheme = useColorScheme();
+  const [colorText, setColorText] = useState(colors.text);
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const { style, lightColor, darkColor, children, color, ...otherProps } =
+  const { style, lightColor, darkColor, children, colorName, ...otherProps } =
     props;
 
   // --- END: Local state ------------------------------------------------------
@@ -26,13 +31,18 @@ export default function Text(props: TextProps) {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
+  useEffect(() => {
+    if (colorName != null && colors[colorName] != null) {
+      setColorText(colors[colorName]);
+    }
+  }, [colorScheme, colorName]);
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <RNText style={[{ color: color ?? text }, style]} {...otherProps}>
+    <RNText style={[{ color: colorText }, style]} {...otherProps}>
       {children}
     </RNText>
   );

@@ -1,8 +1,9 @@
 import React from "react";
-
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import View, { ViewProps } from "@/atoms/View";
+
 import useTheme from "@/hooks/useTheme";
+import View, { ViewProps } from "@/atoms/View";
+import { styles } from "./SafeAreaView.styles";
 
 export default function SafeAreaView(props: ViewProps) {
   const { children } = props;
@@ -12,7 +13,7 @@ export default function SafeAreaView(props: ViewProps) {
 
   // --- Data and handlers -----------------------------------------------------
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const { colors } = useTheme();
+  const { colors, spacing } = useTheme();
   // --- END: Data and handlers ------------------------------------------------
 
   return (
@@ -22,7 +23,9 @@ export default function SafeAreaView(props: ViewProps) {
           paddingTop: insets.top,
           paddingBottom: insets.bottom,
           backgroundColor: colors.background,
+          maxWidth: spacing.maxWidth,
         },
+        styles.safeAreaView,
         style,
       ]}
       {...otherProps}

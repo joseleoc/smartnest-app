@@ -1,10 +1,13 @@
-import useTheme from "@/hooks/useTheme";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
+import useTheme from "@/hooks/useTheme";
+import { useTranslation } from "react-i18next";
+
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function TabLayout() {
   // --- Hooks -----------------------------------------------------------------
   const { colors } = useTheme();
+  const { t } = useTranslation();
   // --- END: Hooks ------------------------------------------------------------
 
   return (
@@ -12,7 +15,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: t("HOME.TITLE"),
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
           ),
@@ -21,7 +24,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Settings",
+          title: t("SETTINGS.TITLE"),
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="cog" color={color} />
           ),

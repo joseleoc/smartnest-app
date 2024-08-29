@@ -1,14 +1,21 @@
-import Button from "@/atoms/Button";
-import FloatActionButton from "@/atoms/FloatActionButton";
-import SafeAreaView from "@/atoms/SafeAreaView";
-import ActionsBottomSheet from "@/templates/ActionsBottomSheet";
-import { Text } from "react-native";
+import { Pressable } from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { styles } from "./IconItem.styles";
+import useTheme from "@/hooks/useTheme";
 
-export default function Home() {
+type IconItemProps = {
+  icon: string;
+  onPress: () => void;
+  children: React.ReactNode;
+};
+
+export default function IconItem(props: IconItemProps) {
   // --- Hooks -----------------------------------------------------------------
+  const { spacing } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
+  const { icon, onPress, children } = props;
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -24,12 +31,16 @@ export default function Home() {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <SafeAreaView>
-      <Button>
-        <Text>Home</Text>
-      </Button>
-      <FloatActionButton />
-      <ActionsBottomSheet />
-    </SafeAreaView>
+    <Pressable
+      style={[
+        styles.iconItem,
+        { gap: spacing.spacingSmall, padding: spacing.spacingSmall },
+      ]}
+      onPress={onPress}
+    >
+      <FontAwesome size={spacing.textExtraLarge} name={icon} color={"black"} />
+
+      {children}
+    </Pressable>
   );
 }

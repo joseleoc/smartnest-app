@@ -1,12 +1,6 @@
 import React from "react";
 import { useTheme } from "@react-navigation/native";
-import {
-  Pressable,
-  PressableProps,
-  StyleProp,
-  useColorScheme,
-  ViewStyle,
-} from "react-native";
+import { Pressable, PressableProps, StyleProp, ViewStyle } from "react-native";
 
 import { ThemeProps } from "@/types";
 import { styles } from "./Button.styles";
@@ -16,7 +10,6 @@ type ButtonProps = PressableProps &
 
 export default function Button(props: ButtonProps) {
   // --- Hooks -----------------------------------------------------------------
-  const theme = useColorScheme();
   const { colors } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
@@ -44,7 +37,7 @@ export default function Button(props: ButtonProps) {
         { backgroundColor: colors.primary },
         styles.buttonShadow,
         styles.button,
-        pressed ? pressStyle ?? style : style,
+        pressed ? (pressStyle ?? style) : style,
       ]}
     >
       {children}

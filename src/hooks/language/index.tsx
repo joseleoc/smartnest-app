@@ -11,11 +11,10 @@ export default function useDefaultLanguage() {
       } catch (error) {
         console.error(
           "🚀 ~ hooks/language ~ file: index.tsx:12 ~ getLng ~ error:",
-          error
+          error,
         );
       }
     };
     getLng();
-  }),
-    [];
+  }, []);
 }

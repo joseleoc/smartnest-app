@@ -11,7 +11,13 @@ export default function TabLayout() {
   // --- END: Hooks ------------------------------------------------------------
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: colors.primary }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: colors.primary,
+        title: "SmartNest",
+        
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{

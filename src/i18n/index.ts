@@ -4,8 +4,8 @@ import en from "@/locales/en.json";
 import es from "@/locales/es.json";
 
 const resources = {
-  es: { translation: en },
-  en: { translation: es },
+  es: { translation: es },
+  en: { translation: en },
 };
 
 i18n.use(initReactI18next).init({

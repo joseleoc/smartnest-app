@@ -33,7 +33,12 @@ export default function FloatActionButton() {
       onPress={handleButtonPress}
       style={[
         styles.floatActionButton,
-        { width: spacing.buttonMedium, height: spacing.buttonMedium },
+        {
+          width: spacing.buttonMedium,
+          height: spacing.buttonMedium,
+          bottom: spacing.spacingLarge,
+          right: spacing.spacingLarge,
+        },
       ]}
     >
       <AntDesign

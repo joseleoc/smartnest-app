@@ -32,7 +32,7 @@ export default function Text(props: TextProps) {
 
   // --- Side effects ----------------------------------------------------------
   useEffect(() => {
-    if (colorName != null && colors[colorName] != null) {
+    if (colorName != null) {
       setColorText(colors[colorName]);
     }
   }, [colorScheme, colorName]);

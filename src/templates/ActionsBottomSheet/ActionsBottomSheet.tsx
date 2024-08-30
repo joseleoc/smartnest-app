@@ -1,17 +1,15 @@
-import { Platform, Pressable, TouchableWithoutFeedback } from "react-native";
 import { useStore } from "@/stores/zustand";
 import { useEffect, useMemo, useState } from "react";
 import { Modal, Animated, LayoutChangeEvent } from "react-native";
+import { Platform, Pressable, TouchableWithoutFeedback } from "react-native";
 
 import useTheme from "@/hooks/useTheme";
 
 import View from "@/atoms/View";
-import Text from "@/atoms/Text/Text";
-import IconItem from "@/atoms/IconItem";
 import SafeAreaView from "@/atoms/SafeAreaView";
+import ActionsBottomSheetList from "@/molecules/ActionsBottomSheetList";
 
 import { styles } from "./ActionsBottomSheet.styles";
-import { Actions } from "./ActionsBottomSheet.constants";
 
 export default function ActionsButtonSheet() {
   // --- Hooks ----------------------------------------------------------------
@@ -84,15 +82,7 @@ export default function ActionsButtonSheet() {
                     },
                   ]}
                 >
-                  {Actions.map((action, index) => (
-                    <IconItem
-                      key={index}
-                      icon={action.icon}
-                      onPress={() => console.log(action.label)}
-                    >
-                      <Text>{action.label}</Text>
-                    </IconItem>
-                  ))}
+                  <ActionsBottomSheetList />
                 </View>
               </Pressable>
             </View>

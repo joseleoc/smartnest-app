@@ -1,9 +1,23 @@
 {
   "test": "Prueba",
+  "COMMON": {
+    "ADD": "Añadir",
+    "ACCEPT": "Aceptar",
+    "CANCEL": "Cancelar",
+    "DELETE": "Eliminar",
+    "EDIT": "Editar",
+    "SAVE": "Guardar"
+  },
   "HOME": {
     "TITLE": "Inicio"
   },
   "SETTINGS": {
     "TITLE": "Ajustes"
+  },
+  "EXPENSES": {
+    "TITLE": "Gastos"
+  },
+  "INCOMES": {
+    "TITLE": "Ingresos"
   }
 }

@@ -1,9 +1,23 @@
 {
   "test": "Test",
+  "COMMON": {
+    "ADD": "Add",
+    "ACCEPT": "Accept",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "SAVE": "Save"
+  },
   "HOME": {
     "TITLE": "Home"
   },
   "SETTINGS": {
     "TITLE": "Settings"
+  },
+  "EXPENSES": {
+    "TITLE": "Expenses"
+  },
+  "INCOMES": {
+    "TITLE": "Incomes"
   }
 }

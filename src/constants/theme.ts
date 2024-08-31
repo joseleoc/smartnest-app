@@ -42,6 +42,8 @@ export const DarkTheme = {
     dangerContrast: "#ffffff",
     warning: "#ffc409",
     warningContrast: "#000000",
+    muted: "#e0e0e0",
+    mutedContrast: "#000000",
   },
   spacing,
 };
@@ -65,6 +67,8 @@ export const LightTheme: Theme = {
     dangerContrast: "#ffffff",
     warning: "#ffc409",
     warningContrast: "#000000",
+    muted: "#e0e0e0",
+    mutedContrast: "#000000",
   },
   spacing,
 };

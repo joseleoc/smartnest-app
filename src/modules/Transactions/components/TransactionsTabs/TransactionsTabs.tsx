@@ -1,18 +1,19 @@
+import { useStore } from "@/stores/zustand";
+import { useCallback, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { styles } from "./TransactionTabs.styles";
-import Text from "@/atoms/Text";
-import View from "@/atoms/View";
 
 import useTheme from "@/hooks/useTheme";
 import Button from "@/atoms/Button";
-import { useTranslation } from "react-i18next";
+import View from "@/atoms/View";
+import Text from "@/atoms/Text";
 
-import { useCallback, useEffect, useMemo } from "react";
 import { TransactionTabsButtons } from "./TransactionsTabs.constants";
 import { TransactionViews } from "@/modules/Transactions/Transactions.constants";
-import { useStore } from "@/stores/zustand";
+
 export default function TransactionsTabs() {
   // --- Hooks -----------------------------------------------------------------
-  const { colors, spacing } = useTheme();
+  const { colors, styling } = useTheme();
   const { t } = useTranslation();
   const { transactionsView: view, setTransactionsView: setView } = useStore();
   // --- END: Hooks ------------------------------------------------------------
@@ -28,9 +29,7 @@ export default function TransactionsTabs() {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
-  useEffect(() => {
-    console.log("view", view);
-  }, [view]);
+
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
@@ -59,8 +58,8 @@ export default function TransactionsTabs() {
             styles.tab,
             styles.buttonShadow,
             {
-              paddingHorizontal: spacing.spacingMedium,
-              paddingVertical: spacing.spacingSmall,
+              paddingHorizontal: styling.spacing.medium,
+              paddingVertical: styling.spacing.small,
             },
             setActiveTabStyle(view === tabView),
           ]}
@@ -69,7 +68,7 @@ export default function TransactionsTabs() {
             style={[
               {
                 color: colors.backgroundContrast,
-                fontSize: spacing.textRegular,
+                fontSize: styling.text.regular,
               },
             ]}
           >

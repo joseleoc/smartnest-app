@@ -4,24 +4,40 @@ import {
 } from "@react-navigation/native";
 
 export type Theme = typeof DarkTheme;
+const styling = {
+  input: {
+    medium: 48,
+  },
+  button: {
+    medium: 48,
+    large: 56,
+    small: 24,
+  },
+  text: {
+    regular: 16,
+    small: 14,
+    extraSmall: 12,
+    medium: 18,
+    large: 24,
+    extraLarge: 32,
+  },
 
-const spacing = {
-  maxWidth: 800,
-  textRegular: 16,
-  textSmall: 14,
-  textExtraSmall: 12,
-  textMedium: 18,
-  textLarge: 24,
-  textExtraLarge: 32,
-  buttonMedium: 48,
-  buttonLarge: 56,
-  buttonSmall: 24,
-  spacingExtraSmall: 4,
-  spacingSmall: 8,
-  spacingMedium: 16,
-  spacingLarge: 24,
-  spacingExtraLarge: 32,
-};
+  spacing: {
+    maxWidth: 800,
+    extraSmall: 4,
+    small: 8,
+    medium: 16,
+    large: 24,
+    extraLarge: 32,
+  }
+  , radius: {
+    small: 8,
+    medium: 16,
+    large: 24,
+    extraLarge: 32,
+    full: 100,
+  },
+}
 
 export const DarkTheme = {
   ...DefaultDarkTheme,
@@ -44,8 +60,10 @@ export const DarkTheme = {
     warningContrast: "#000000",
     muted: "#e0e0e0",
     mutedContrast: "#000000",
+    white: "#ffffff",
+    black: "#000000",
   },
-  spacing,
+  styling
 };
 
 export const LightTheme: Theme = {
@@ -69,6 +87,8 @@ export const LightTheme: Theme = {
     warningContrast: "#000000",
     muted: "#e0e0e0",
     mutedContrast: "#000000",
+    white: "#ffffff",
+    black: "#000000",
   },
-  spacing,
+  styling
 };

@@ -13,7 +13,7 @@ function SafeAreaView(props: ViewProps, ref: any) {
 
   // --- Data and handlers -----------------------------------------------------
   const { style, lightColor, darkColor, focusable, ...otherProps } = props;
-  const { colors, spacing } = useTheme();
+  const { colors, styling } = useTheme();
   // --- END: Data and handlers ------------------------------------------------
 
   return (
@@ -23,7 +23,7 @@ function SafeAreaView(props: ViewProps, ref: any) {
           paddingTop: insets.top,
           paddingBottom: insets.bottom,
           backgroundColor: colors.background,
-          maxWidth: spacing.maxWidth,
+          maxWidth: styling.spacing.maxWidth,
         },
         styles.safeAreaView,
         style,

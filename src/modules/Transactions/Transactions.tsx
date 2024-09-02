@@ -10,7 +10,7 @@ import { useStore } from "@/stores/zustand";
 
 export default function Transactions() {
   // --- Hooks -----------------------------------------------------------------
-  const { spacing } = useTheme();
+  const { styling } = useTheme();
   const { transactionsView: view } = useStore();
   // --- END: Hooks ------------------------------------------------------------
 
@@ -34,7 +34,11 @@ export default function Transactions() {
       <View
         style={[
           styles.container,
-          { paddingBottom: spacing.spacingLarge, paddingTop: 0 },
+          {
+            paddingBottom: styling.spacing.large,
+            paddingTop: 0,
+            gap: styling.spacing.large,
+          },
         ]}
       >
         <TransactionsTabs />

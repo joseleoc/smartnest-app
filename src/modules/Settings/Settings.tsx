@@ -7,7 +7,7 @@ import useTheme from "@/hooks/useTheme";
 
 export default function Settings() {
   // --- Hooks -----------------------------------------------------------------
-  const { spacing } = useTheme();
+  const { styling } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -25,7 +25,7 @@ export default function Settings() {
   // --- Data and handlers -----------------------------------------------------
   // --- END: Data and handlers ------------------------------------------------
   return (
-    <SafeAreaView style={[styles.container, { gap: spacing.spacingMedium }]}>
+    <SafeAreaView style={[styles.container, { gap: styling.spacing.medium }]}>
       <LanguagePicker />
       <Button>
         <Text colorName="primaryContrast">Settings</Text>

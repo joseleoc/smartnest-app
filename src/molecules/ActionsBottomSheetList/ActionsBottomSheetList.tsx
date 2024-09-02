@@ -13,7 +13,7 @@ import { useStore } from "@/stores/zustand";
 export default function ActionsBottomSheetList() {
   // --- Hooks -----------------------------------------------------------------
   const { t } = useTranslation();
-  const { spacing, colors } = useTheme();
+  const { styling, colors } = useTheme();
   const { setActionBottomSheetOpen } = useStore();
   // --- END: Hooks ------------------------------------------------------------
 
@@ -34,7 +34,7 @@ export default function ActionsBottomSheetList() {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <View style={[{ gap: spacing.spacingMedium }]}>
+    <View style={[{ gap: styling.spacing.medium }]}>
       <Link
         push
         href={{
@@ -42,19 +42,19 @@ export default function ActionsBottomSheetList() {
           params: { view: "expenses" },
         }}
       >
-        <Pressable style={[styles.litItem, { gap: spacing.spacingMedium }]}>
+        <Pressable style={[styles.litItem, { gap: styling.spacing.medium }]}>
           <View
             style={[
               styles.itemIcon,
               {
                 backgroundColor: colors.danger,
-                padding: spacing.spacingExtraSmall,
+                padding: styling.spacing.extraSmall,
               },
             ]}
           >
             <AntDesign
               name="arrowup"
-              size={spacing.textLarge}
+              size={styling.text.large}
               color={colors.dangerContrast}
               style={[
                 {
@@ -73,19 +73,19 @@ export default function ActionsBottomSheetList() {
           params: { view: "incomes" },
         }}
       >
-        <Pressable style={[styles.litItem, { gap: spacing.spacingMedium }]}>
+        <Pressable style={[styles.litItem, { gap: styling.spacing.medium }]}>
           <View
             style={[
               styles.itemIcon,
               {
                 backgroundColor: colors.success,
-                padding: spacing.spacingExtraSmall,
+                padding: styling.spacing.extraSmall,
               },
             ]}
           >
             <AntDesign
               name="arrowdown"
-              size={spacing.textLarge}
+              size={styling.text.large}
               color={colors.successContrast}
               style={[
                 {

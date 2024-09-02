@@ -6,7 +6,7 @@ import { useStore } from "@/stores/zustand";
 
 export default function FloatActionButton() {
   // --- Hooks -----------------------------------------------------------------
-  const { spacing, colors } = useTheme();
+  const { styling, colors } = useTheme();
   const { setActionBottomSheetOpen, isActionBottomSheetOpen } = useStore();
   // --- END: Hooks ------------------------------------------------------------
 
@@ -34,20 +34,20 @@ export default function FloatActionButton() {
       style={[
         styles.floatActionButton,
         {
-          width: spacing.buttonMedium,
-          height: spacing.buttonMedium,
-          bottom: spacing.spacingLarge,
-          right: spacing.spacingLarge,
+          width: styling.button.medium,
+          height: styling.button.medium,
+          bottom: styling.spacing.large,
+          right: styling.spacing.large,
         },
       ]}
     >
       <AntDesign
         name="plus"
-        size={spacing.textMedium}
+        size={styling.text.medium}
         style={{
           color: colors.primaryContrast,
-          width: spacing.textMedium,
-          height: spacing.textMedium,
+          width: styling.text.medium,
+          height: styling.text.medium,
         }}
         color={colors.primaryContrast}
       />

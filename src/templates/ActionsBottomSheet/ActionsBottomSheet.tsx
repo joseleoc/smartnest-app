@@ -14,7 +14,7 @@ import { styles } from "./ActionsBottomSheet.styles";
 export default function ActionsButtonSheet() {
   // --- Hooks ----------------------------------------------------------------
   const { isActionBottomSheetOpen, setActionBottomSheetOpen } = useStore();
-  const { spacing } = useTheme();
+  const { styling } = useTheme();
   const [height, setHeight] = useState(0);
   // --- END: Hooks ------------------------------------------------------------
 
@@ -68,7 +68,7 @@ export default function ActionsButtonSheet() {
               {
                 bottom: -height,
                 transform: [{ translateY: animated }],
-                maxWidth: spacing.maxWidth,
+                maxWidth: styling.spacing.maxWidth,
               },
             ]}
           >
@@ -77,8 +77,8 @@ export default function ActionsButtonSheet() {
                 <View
                   style={[
                     {
-                      padding: spacing.spacingMedium,
-                      gap: spacing.spacingSmall,
+                      padding: styling.spacing.medium,
+                      gap: styling.spacing.small,
                     },
                   ]}
                 >

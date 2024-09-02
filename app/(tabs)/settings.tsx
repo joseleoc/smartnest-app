@@ -1,4 +1,4 @@
-import Settings from "@/pages/Settings";
+import Settings from "@/modules/Settings";
 
 export default function TabSettings() {
   return <Settings />;

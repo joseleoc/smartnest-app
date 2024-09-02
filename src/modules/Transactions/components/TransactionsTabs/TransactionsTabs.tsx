@@ -1,23 +1,23 @@
 import { styles } from "./TransactionTabs.styles";
 import Text from "@/atoms/Text";
 import View from "@/atoms/View";
-import { TransactionsTabsProps } from "./TransactionTabs.types";
+
 import useTheme from "@/hooks/useTheme";
 import Button from "@/atoms/Button";
 import { useTranslation } from "react-i18next";
-import { TransactionViews } from "@/pages/Transactions/Transactions";
 
-import { useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { TransactionTabsButtons } from "./TransactionsTabs.constants";
-import { Animated } from "react-native";
-export default function TransactionsTabs(props: TransactionsTabsProps) {
+import { TransactionViews } from "@/modules/Transactions/Transactions.constants";
+import { useStore } from "@/stores/zustand";
+export default function TransactionsTabs() {
   // --- Hooks -----------------------------------------------------------------
   const { colors, spacing } = useTheme();
   const { t } = useTranslation();
+  const { transactionsView: view, setTransactionsView: setView } = useStore();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const { view, setView } = props;
 
   // --- END: Local state ------------------------------------------------------
 
@@ -28,43 +28,54 @@ export default function TransactionsTabs(props: TransactionsTabsProps) {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
+  useEffect(() => {
+    console.log("view", view);
+  }, [view]);
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
   const setActiveTabStyle = useMemo(
-    () => (isActive: boolean, color: string) =>
-      isActive ? { borderColor: color } : {},
+    () => (isActive: boolean) =>
+      isActive ? { borderColor: colors.backgroundContrast } : {},
     [view]
   );
+
+  const handleChangeTab = useCallback(
+    (tabView: TransactionViews) => () => {
+      setView(tabView);
+    },
+    [setView]
+  );
+
   // --- END: Data and handlers ------------------------------------------------
 
   return (
     <View style={styles.container}>
-      {TransactionTabsButtons.map(({ title, view: tabView }, index) => (
-        <Animated.View key={index}>
-          <Button
-            onPress={() => setView(tabView)}
+      {TransactionTabsButtons.map(({ title, tabView }, index) => (
+        <Button
+          key={index}
+          onPress={handleChangeTab(tabView)}
+          style={[
+            styles.tab,
+            styles.buttonShadow,
+            {
+              paddingHorizontal: spacing.spacingMedium,
+              paddingVertical: spacing.spacingSmall,
+            },
+            setActiveTabStyle(view === tabView),
+          ]}
+        >
+          <Text
             style={[
-              styles.tab,
               {
-                paddingHorizontal: spacing.spacingMedium,
-                paddingVertical: spacing.spacingSmall,
+                color: colors.backgroundContrast,
+                fontSize: spacing.textRegular,
               },
-              setActiveTabStyle(view === tabView, colors.backgroundContrast),
             ]}
           >
-            <Text
-              style={[
-                {
-                  color: colors.backgroundContrast,
-                  fontSize: spacing.textRegular,
-                },
-              ]}
-            >
-              {t(title)}
-            </Text>
-          </Button>
-        </Animated.View>
+            {t(title)}
+          </Text>
+        </Button>
       ))}
     </View>
   );

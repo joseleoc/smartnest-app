@@ -1,19 +1,17 @@
 import View from "@/atoms/View";
 import { styles } from "./Transactions.styles";
-import TransactionsTabs from "@/molecules/TransactionsTabs";
-import { useState } from "react";
 import SafeAreaView from "@/atoms/SafeAreaView";
 import useTheme from "@/hooks/useTheme";
-
-export enum TransactionViews {
-  "expenses",
-  "incomes",
-}
+import { TransactionViews } from "./Transactions.constants";
+import ExpensesForm from "./components/ExpensesForm";
+import IncomesForm from "./components/IncomesForm";
+import TransactionsTabs from "./components/TransactionsTabs";
+import { useStore } from "@/stores/zustand";
 
 export default function Transactions() {
   // --- Hooks -----------------------------------------------------------------
-  const [view, setView] = useState<TransactionViews>(TransactionViews.expenses);
   const { spacing } = useTheme();
+  const { transactionsView: view } = useStore();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -39,7 +37,9 @@ export default function Transactions() {
           { paddingBottom: spacing.spacingLarge, paddingTop: 0 },
         ]}
       >
-        <TransactionsTabs setView={setView} view={view} />
+        <TransactionsTabs />
+        {view === TransactionViews.expenses && <ExpensesForm />}
+        {view === TransactionViews.incomes && <IncomesForm />}
       </View>
     </SafeAreaView>
   );

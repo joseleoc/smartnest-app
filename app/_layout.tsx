@@ -1,14 +1,11 @@
 import { Stack } from "expo-router/stack";
 import "@/i18n";
 import useDefaultLanguage from "@/hooks/language";
-import { ThemeProvider } from "@react-navigation/native";
-import { useColorScheme } from "react-native";
-import { DarkTheme, LightTheme } from "@/constants/theme";
+import GeneralContextProvider from "@/providers/generalContextProvider";
 
 export default function RootLayout() {
   // --- Hooks -----------------------------------------------------------------
   useDefaultLanguage();
-  const colorScheme = useColorScheme();
 
   // --- END: Hooks ------------------------------------------------------------
 
@@ -28,10 +25,10 @@ export default function RootLayout() {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : LightTheme}>
+    <GeneralContextProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
-    </ThemeProvider>
+    </GeneralContextProvider>
   );
 }

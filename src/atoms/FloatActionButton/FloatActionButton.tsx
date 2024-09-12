@@ -1,8 +1,11 @@
-import Button from "@/atoms/Button";
-import { styles } from "./FloatActionButton.styles";
-import useTheme from "@/hooks/useTheme";
 import AntDesign from "@expo/vector-icons/AntDesign";
+
+import useTheme from "@/hooks/useTheme";
 import { useStore } from "@/stores/zustand";
+
+import Button from "@/atoms/Button";
+
+import { styles } from "./FloatActionButton.styles";
 
 export default function FloatActionButton() {
   // --- Hooks -----------------------------------------------------------------
@@ -40,6 +43,8 @@ export default function FloatActionButton() {
           right: styling.spacing.large,
         },
       ]}
+      testID="floatActionButton"
+      role="button"
     >
       <AntDesign
         name="plus"

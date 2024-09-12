@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button atom renders correctly 1`] = `
+exports[`FloatActionButton atom renders correctly 1`] = `
 <View
   accessibilityState={
     {
@@ -52,21 +52,25 @@ exports[`Button atom renders correctly 1`] = `
         "paddingHorizontal": 24,
         "paddingVertical": 10,
       },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
       [
         {
-          "color": "#000000",
+          "alignItems": "center",
+          "borderRadius": 100,
+          "justifyContent": "center",
+          "position": "absolute",
+          "zIndex": 100,
         },
-        undefined,
-      ]
-    }
-  >
-    Test
-  </Text>
+        {
+          "bottom": 24,
+          "height": 48,
+          "right": 24,
+          "width": 48,
+        },
+      ],
+    ]
+  }
+  testID="floatActionButton"
+>
+  <Text />
 </View>
 `;

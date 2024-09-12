@@ -34,7 +34,10 @@ export default function ActionsBottomSheetList() {
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <View style={[{ gap: styling.spacing.medium }]}>
+    <View
+      style={[{ gap: styling.spacing.medium }]}
+      testID="actionsBottomSheetList"
+    >
       <Link
         push
         href={{

@@ -13,9 +13,8 @@ export default function Home() {
         communityId: "1",
         name: "Test",
         description: "Test",
-        createdAt: new Date(),
+        isActive: true,
       });
-      console.log(newCommunity);
     } catch (error) {
       console.error("🚀 ~ file: Home.tsx:20 ~ create ~ error:", error);
     }
@@ -39,7 +38,7 @@ export default function Home() {
 
   return (
     <SafeAreaView>
-      <Button onPress={create}>
+      <Button>
         <Text colorName="primaryContrast">Home</Text>
       </Button>
       <FloatActionButton />

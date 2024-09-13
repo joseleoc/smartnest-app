@@ -1,8 +1,3 @@
-export type TCommunity = {
-    communityId: string;
-    name: string;
-    description?: string;
-    createdAt: Date;
-    deletedAt?: Date;
-    isDeleted?: boolean;
-}
+import Community from "@/db/model/community/community";
+
+export type TCommunity = Pick<Community, "communityId" | "name" | "description" | "isActive" | "avatar">

@@ -8,7 +8,6 @@ import { TCommunity } from "@/types/community.types";
 import { CommunityCollection } from "@/db/model/community";
 
 function Layout({ communities }: { communities: TCommunity[] }) {
-  console.log(communities);
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer

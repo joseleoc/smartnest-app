@@ -1,6 +1,5 @@
 import { Model } from '@nozbe/watermelondb';
-import { field, text, date, writer } from '@nozbe/watermelondb/decorators';
-
+import { field, text, date } from '@nozbe/watermelondb/decorators';
 import { TableName } from '../../db.types';
 
 export default class Community extends Model {
@@ -15,4 +14,7 @@ export default class Community extends Model {
     @date('created_at') createdAt!: Date;
     @date("deleted_at") deletedAt?: Date;
     @field("is_deleted") isDeleted?: boolean;
+    @field("avatar") avatar?: string;
+    @field("is_active") isActive?: boolean;
+
 }

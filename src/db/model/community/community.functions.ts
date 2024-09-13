@@ -1,7 +1,7 @@
 import database from "@/db";
 import Community from "./community";
 import { TableName } from "@/db/db.types";
-import { TCommunity } from "../../../types/community.types";
+import { TCommunity } from "@/types/community.types";
 
 export async function createCommunity(community: TCommunity) {
     const newCommunity = await database.write(async () =>
@@ -9,7 +9,9 @@ export async function createCommunity(community: TCommunity) {
             collectionCommunity.communityId = community.communityId;
             collectionCommunity.name = community.name;
             collectionCommunity.description = community.description;
-            collectionCommunity.createdAt = community.createdAt;
+            collectionCommunity.createdAt = new Date();
+            collectionCommunity.avatar = community.avatar;
+            collectionCommunity.isActive = true;
         })
     )
     return newCommunity;

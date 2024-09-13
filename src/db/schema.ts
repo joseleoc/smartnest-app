@@ -5,14 +5,18 @@ export default appSchema({
     version: 1,
     tables: [
         tableSchema({
+
             name: TableName.Communities,
             columns: [
                 { name: "name", type: "string" },
+                { name: "is_active", type: "boolean" },
                 { name: "created_at", type: "number" },
                 { name: "community_id", type: "string" },
                 { name: "description", type: "string", isOptional: true },
                 { name: "is_deleted", type: "boolean", isOptional: true },
                 { name: "deleted_at", type: "number", isOptional: true },
+                { name: "avatar", type: "string", isOptional: true },
+
             ]
         }),
 

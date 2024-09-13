@@ -9,7 +9,10 @@ import Community from './model/community/community'
 
 // Then, make a Watermelon database from it!
 const database = new Database({
-    adapter: createAdapter({ schema, migrations }),
+    adapter: createAdapter({
+        schema,
+        // migrations
+    }),
     modelClasses: [
         Community
         // ⬅️ You'll add Models to Watermelon here

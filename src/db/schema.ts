@@ -1,22 +1,23 @@
 import { appSchema, tableSchema } from '@nozbe/watermelondb'
+import { TableName } from './db.types'
 
 export default appSchema({
     version: 1,
     tables: [
         tableSchema({
-            name: "communities",
+            name: TableName.Communities,
             columns: [
-                { name: "community_id", type: "string" },
                 { name: "name", type: "string" },
-                { name: "description", type: "string" },
                 { name: "created_at", type: "number" },
+                { name: "community_id", type: "string" },
+                { name: "description", type: "string", isOptional: true },
                 { name: "is_deleted", type: "boolean", isOptional: true },
                 { name: "deleted_at", type: "number", isOptional: true },
             ]
         }),
 
         tableSchema({
-            name: "properties",
+            name: TableName.Properties,
             columns: [
                 { name: "property_id", type: "string" },
                 { name: "property_code", type: "string", },
@@ -30,7 +31,7 @@ export default appSchema({
             ]
         }),
         tableSchema({
-            name: "expenses_categories",
+            name: TableName.ExpensesCategories,
             columns: [
                 { name: "category_id", type: "string" },
                 { name: "name", type: "string" },
@@ -42,7 +43,7 @@ export default appSchema({
             ]
         }),
         tableSchema({
-            name: "expenses",
+            name: TableName.Expenses,
             columns: [
                 { name: "expense_id", type: "string" },
                 { name: "category_id", type: "string" },
@@ -57,7 +58,7 @@ export default appSchema({
             ]
         }),
         tableSchema({
-            name: "incomes",
+            name: TableName.Incomes,
             columns: [
                 { name: "income_id", type: "string" },
                 { name: "category_id", type: "string" },

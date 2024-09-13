@@ -1,2 +1,2 @@
 export { default } from './community';
-export { default as createCommunity } from "./createCommunity"
+export { createCommunity, CommunityCollection } from "./community.functions"

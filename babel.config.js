@@ -12,6 +12,7 @@ module.exports = function (api) {
           regenerator: true,
         },
       ],
+      "react-native-reanimated/plugin",
     ],
   };
 };

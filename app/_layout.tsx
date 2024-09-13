@@ -27,7 +27,7 @@ export default function RootLayout() {
   return (
     <GeneralContextProvider>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
       </Stack>
     </GeneralContextProvider>
   );

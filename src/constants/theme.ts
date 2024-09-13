@@ -85,7 +85,7 @@ export const LightTheme: Theme = {
     dangerContrast: "#ffffff",
     warning: "#ffc409",
     warningContrast: "#000000",
-    muted: "#e0e0e0",
+    muted: "#6f7c80",
     mutedContrast: "#000000",
     white: "#ffffff",
     black: "#000000",

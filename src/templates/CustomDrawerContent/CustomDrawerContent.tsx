@@ -3,15 +3,18 @@ import { useRouter } from "expo-router";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 
 import DrawerItem from "./components/DrawerItem";
-import CommunityAvatar from "./components/CommunityAvatar";
+import CondominiumAvatar from "./components/CondominiumAvatar";
 
-import { TCommunity } from "@/types/community.types";
 import { styles } from "./CustomDrawerContent.styles";
+import Condominium from "@/db/model/condominium/condominium";
+import { withObservables } from "@nozbe/watermelondb/react";
+import { CondominiumCollection } from "@/db/model/condominium/condominium.functions";
+import View from "@/atoms/View";
 
-export default function CustomDrawerContent({
-  communities,
+function CustomDrawerContent({
+  condominiums,
 }: {
-  communities: TCommunity[];
+  condominiums: Condominium[];
 }) {
   const { push } = useRouter();
   const [items, setItems] = useState<any[]>([
@@ -30,7 +33,7 @@ export default function CustomDrawerContent({
   ]);
   return (
     <DrawerContentScrollView style={[styles.scrollView]}>
-      <CommunityAvatar />
+      <CondominiumAvatar />
       {items.map((item) => (
         <DrawerItem
           key={item.label}
@@ -41,3 +44,9 @@ export default function CustomDrawerContent({
     </DrawerContentScrollView>
   );
 }
+
+const enhance = withObservables(["condominiums"], () => ({
+  condominiums: CondominiumCollection.query(),
+}));
+
+export default enhance(CustomDrawerContent);

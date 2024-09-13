@@ -4,21 +4,23 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import CustomDrawerContent from "@/templates/CustomDrawerContent";
 
-import { TCommunity } from "@/types/community.types";
-import { CommunityCollection } from "@/db/model/community";
+import { TCondominium } from "@/types/condominium.types";
+import { CondominiumCollection } from "@/db/model/condominium/condominium.functions";
 
-function Layout({ communities }: { communities: TCommunity[] }) {
+function Layout({ condominiums }: { condominiums: TCondominium[] }) {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
-        drawerContent={() => <CustomDrawerContent communities={communities} />}
+        drawerContent={() => (
+          <CustomDrawerContent condominiums={condominiums} />
+        )}
       />
     </GestureHandlerRootView>
   );
 }
 
 const enhance = withObservables([], () => ({
-  communities: CommunityCollection.query(),
+  condominiums: CondominiumCollection.query(),
 }));
 
 export default enhance(Layout);

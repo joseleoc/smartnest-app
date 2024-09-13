@@ -1,17 +1,18 @@
-import View from "@/atoms/View";
-import useTheme from "@/hooks/useTheme";
-import { styles } from "./CommunityAvatar.styles";
 import { Image } from "expo-image";
-import Text from "@/atoms/Text";
 import { withObservables } from "@nozbe/watermelondb/react";
-import database from "@/db";
-import { TableName } from "@/db/db.types";
-import { Q } from "@nozbe/watermelondb";
-import { useEffect, useState } from "react";
-import Community from "@/db/model/community/community";
-import { TCommunity } from "@/types/community.types";
 
-function CommunityAvatar(communities: { community: Community[] }) {
+import useTheme from "@/hooks/useTheme";
+
+import Text from "@/atoms/Text";
+import View from "@/atoms/View";
+
+import { styles } from "./CondominiumAvatar.styles";
+import { TCondominium } from "@/types/condominium.types";
+import { getActiveCondominium$ } from "@/db/model/condominium";
+import { useEffect, useState } from "react";
+
+type CondominiumAvatarProps = { condominiums: TCondominium[] };
+function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
   // --- Hooks -----------------------------------------------------------------
   const {
     styling: { spacing, radius, text },
@@ -20,13 +21,13 @@ function CommunityAvatar(communities: { community: Community[] }) {
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const [community, setCommunity] = useState<TCommunity | null>(null);
+  const [condominium, setCondominium] = useState<TCondominium | null>(null);
   // --- END: Local state ------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
   useEffect(() => {
-    setCommunity(communities.community[0]);
-  }, [communities]);
+    setCondominium(condominiums[0]);
+  }, [condominiums]);
   // --- END: Side effects -----------------------------------------------------
 
   return (
@@ -42,48 +43,46 @@ function CommunityAvatar(communities: { community: Community[] }) {
       <Image
         style={[{ borderRadius: radius.full }, styles.avatar]}
         source={
-          community?.avatar
-            ? { uri: community?.avatar }
+          condominium?.avatar
+            ? { uri: condominium?.avatar }
             : require("src/assets/icons/buildings.png")
         }
+        contentFit={"contain"}
       />
-      <View>
+      <View style={styles.infoContainer}>
         <Text
+          numberOfLines={2}
           style={[
             {
               fontSize: text.medium,
             },
+            styles.text,
           ]}
         >
-          {community?.name}
+          {condominium?.name}
         </Text>
 
-        <Text>{String(community?.isActive)}</Text>
-
-        <Text>{community?.communityId}</Text>
+        <Text style={styles.text}>{condominium?.condominiumId}</Text>
 
         <Text
+          numberOfLines={3}
           style={[
             {
               fontSize: text.small,
               color: colors.muted,
             },
+            styles.text,
           ]}
         >
-          {community?.description}
+          {condominium?.description}
         </Text>
       </View>
     </View>
   );
 }
 
-const enhance = withObservables(
-  [],
-  (communities: { community: Community[] }) => ({
-    community: database
-      .get<Community>(TableName.Communities)
-      .query(Q.where("is_active", true)),
-  })
-);
+const enhance = withObservables(["condominiums"], ({ condominiums }) => ({
+  condominiums: getActiveCondominium$(),
+}));
 
-export default enhance(CommunityAvatar);
+export default enhance(CondominiumAvatar);

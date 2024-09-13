@@ -10,7 +10,12 @@ export const styles = StyleSheet.create({
     avatar: {
         width: 45,
         height: 45,
-        resizeMode: "contain",
     },
+    infoContainer: {
+        flex: 1
+    },
+    text: {
+        overflow: "hidden",
+    }
 
 });

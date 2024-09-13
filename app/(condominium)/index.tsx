@@ -1,5 +1,5 @@
 import Transactions from "@/modules/Transactions";
 
-export default function CommunityRoute() {
+export default function CondominiumRoute() {
   return <Transactions />;
 }

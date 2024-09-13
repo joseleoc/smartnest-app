@@ -38,7 +38,7 @@ export default function RootLayout() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="(community)/index"
+          name="(condominium)/index"
           options={{ headerShown: false }}
         />
       </Stack>

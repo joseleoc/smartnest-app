@@ -2,9 +2,8 @@
 import { Database } from '@nozbe/watermelondb'
 
 import schema from './schema'
-import migrations from './migrations'
 import { createAdapter } from './adapter'
-import Community from './model/community/community'
+import Condominium from './model/condominium/condominium'
 
 
 // Then, make a Watermelon database from it!
@@ -14,7 +13,7 @@ const database = new Database({
         // migrations
     }),
     modelClasses: [
-        Community
+        Condominium
         // ⬅️ You'll add Models to Watermelon here
     ],
 })

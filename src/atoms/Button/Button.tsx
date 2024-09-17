@@ -5,8 +5,12 @@ import { Pressable, PressableProps, StyleProp, ViewStyle } from "react-native";
 import { ThemeProps } from "@/types";
 import { styles } from "./Button.styles";
 
-type ButtonProps = PressableProps &
-  ThemeProps & { style?: StyleProp<ViewStyle>; pressStyle?: ViewStyle };
+export type ButtonProps = PressableProps &
+  ThemeProps & {
+    style?: StyleProp<ViewStyle>;
+    pressStyle?: ViewStyle;
+    shadow?: boolean;
+  };
 
 export default function Button(props: ButtonProps) {
   // --- Hooks -----------------------------------------------------------------
@@ -27,7 +31,7 @@ export default function Button(props: ButtonProps) {
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
-  const { style, pressStyle, children, ...otherProps } = props;
+  const { style, pressStyle, children, shadow, ...otherProps } = props;
   // --- END: Data and handlers ------------------------------------------------
 
   return (
@@ -35,7 +39,7 @@ export default function Button(props: ButtonProps) {
       {...otherProps}
       style={({ pressed }) => [
         { backgroundColor: colors.primary },
-        styles.buttonShadow,
+        (shadow == null || shadow === true) && styles.buttonShadow,
         styles.button,
         pressed && styles.buttonPressed,
         pressed ? (pressStyle ?? style) : style,

@@ -13,6 +13,7 @@ import { getActiveCondominium$ } from "@/db/model/condominium";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@/atoms/Button";
+import { useRouter } from "expo-router";
 
 type CondominiumAvatarProps = { condominiums: TCondominium[] };
 function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
@@ -22,6 +23,7 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
     colors,
   } = useTheme();
   const { t } = useTranslation();
+  const { push } = useRouter();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -34,13 +36,22 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
   }, [condominiums]);
   // --- END: Side effects -----------------------------------------------------
 
+  // --- Data and handlers -----------------------------------------------------
+  const goToCreateCondominium = () => {
+    push("(condominiumConfig)");
+  };
+  // --- END: Data and handlers ------------------------------------------------
+
   if (condominium == null)
     return (
       <View
         style={[styles.createCondominiumContainer, { gap: spacing.medium }]}
       >
         <Text> {t("CONDOMINIUM.CREATE")}</Text>
-        <Button style={[{ backgroundColor: colors.secondary }]}>
+        <Button
+          onPress={goToCreateCondominium}
+          style={[{ backgroundColor: colors.secondary }]}
+        >
           <AntDesign
             name="plus"
             size={text.medium}
@@ -59,6 +70,7 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
     <View
       style={[
         styles.container,
+
         {
           gap: spacing.medium,
           padding: spacing.medium,

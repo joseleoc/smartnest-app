@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smartnestapp-dev-565ef-authRole",
+      "UnauthRoleArn": "arn:aws:iam::503561459019:role/amplify-smartnestapp-dev-565ef-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::503561459019:role/amplify-smartnestapp-dev-565ef-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-smartnestapp-dev-565ef-deployment",
+      "UnauthRoleName": "amplify-smartnestapp-dev-565ef-unauthRole",
+      "StackName": "amplify-smartnestapp-dev-565ef",
+      "StackId": "arn:aws:cloudformation:us-east-1:503561459019:stack/amplify-smartnestapp-dev-565ef/5549bc20-74ab-11ef-887f-0affc0d36e9d",
+      "AmplifyAppId": "d2dbjm2vxs3510"
+    }
+  }
+}

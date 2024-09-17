@@ -1,9 +1,12 @@
-import Button from "@/atoms/Button";
-import Text from "@/atoms/Text";
 import SafeAreaView from "@/atoms/SafeAreaView";
-import LanguagePicker from "@/molecules/LanguagePicker";
-import { styles } from "./Settings.styles";
+
 import useTheme from "@/hooks/useTheme";
+
+import Text from "@/atoms/Text";
+import Button from "@/atoms/Button";
+import LanguagePicker from "@/molecules/LanguagePicker";
+
+import { styles } from "./Settings.styles";
 
 export default function Settings() {
   // --- Hooks -----------------------------------------------------------------

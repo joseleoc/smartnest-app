@@ -1,4 +1,4 @@
-import CreateCondominium from "@/templates/CreateCondominium";
+import CreateCondominium from "@/modules/CreateCondominium";
 
 export default function CondominiumConfigRoute() {
   return <CreateCondominium />;

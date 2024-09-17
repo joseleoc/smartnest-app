@@ -7,7 +7,7 @@ import useTheme from "@/hooks/useTheme";
 
 import View from "@/atoms/View";
 import SafeAreaView from "@/atoms/SafeAreaView";
-import ActionsBottomSheetList from "@/molecules/ActionsBottomSheetList";
+import ActionsBottomSheetList from "@/shared/ui/molecules/ActionsBottomSheetList";
 
 import { styles } from "./ActionsBottomSheet.styles";
 

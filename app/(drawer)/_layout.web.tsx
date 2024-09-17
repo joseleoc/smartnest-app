@@ -1,6 +1,6 @@
 import { Drawer } from "expo-router/drawer";
 
-import CustomDrawerContent from "@/templates/CustomDrawerContent";
+import CustomDrawerContent from "@/shared/ui/templates/CustomDrawerContent";
 
 
 export default function Layout() {

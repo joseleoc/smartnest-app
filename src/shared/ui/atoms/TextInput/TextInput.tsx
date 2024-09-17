@@ -29,9 +29,9 @@ export default function TextInput(props: TextInputProps) {
       style={[
         styles.textInput,
         {
-          backgroundColor: colors.white,
+          backgroundColor: colors.light,
           height: styling.input.medium,
-          borderBottomColor: colors.black,
+          borderBottomColor: colors.dark,
           borderBottomWidth: 1,
         },
         style,

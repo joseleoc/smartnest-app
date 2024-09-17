@@ -16,6 +16,12 @@ export const styles = StyleSheet.create({
     },
     text: {
         overflow: "hidden",
+    },
+    createCondominiumContainer: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
     }
 
 });

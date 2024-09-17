@@ -6,18 +6,11 @@ import DrawerItem from "./components/DrawerItem";
 import CondominiumAvatar from "./components/CondominiumAvatar";
 
 import { styles } from "./CustomDrawerContent.styles";
-import Condominium from "@/db/model/condominium/condominium";
-import { withObservables } from "@nozbe/watermelondb/react";
-import { CondominiumCollection } from "@/db/model/condominium/condominium.functions";
 import View from "@/atoms/View";
 import SignOutButton from "@/atoms/SignOutButton";
 import useTheme from "@/hooks/useTheme";
 
-function CustomDrawerContent({
-  condominiums,
-}: {
-  condominiums: Condominium[];
-}) {
+export default function CustomDrawerContent() {
   // --- Hooks -----------------------------------------------------------------
   const { push } = useRouter();
   const {
@@ -43,7 +36,12 @@ function CustomDrawerContent({
 
   return (
     <DrawerContentScrollView style={[styles.scrollView]}>
-      <View style={[styles.container, { gap: spacing.medium }]}>
+      <View
+        style={[
+          styles.container,
+          { gap: spacing.medium, padding: spacing.medium },
+        ]}
+      >
         <CondominiumAvatar />
         <View>
           {items.map((item) => (
@@ -59,9 +57,3 @@ function CustomDrawerContent({
     </DrawerContentScrollView>
   );
 }
-
-const enhance = withObservables(["condominiums"], () => ({
-  condominiums: CondominiumCollection.query(),
-}));
-
-export default enhance(CustomDrawerContent);

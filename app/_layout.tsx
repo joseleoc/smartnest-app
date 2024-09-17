@@ -3,13 +3,15 @@ import "@/i18n";
 import useDefaultLanguage from "@/hooks/language";
 import GeneralContextProvider from "@/providers/generalContextProvider";
 import { withAuthenticator } from "@aws-amplify/ui-react-native";
+import { useEffect } from "react";
+import { useRouter } from "expo-router";
 
 // retrieves only the current value of 'user' from 'useAuthenticator'
 
 function RootLayout() {
   // --- Hooks -----------------------------------------------------------------
   useDefaultLanguage();
-  // const { replace } = useRouter();
+  const { replace } = useRouter();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -22,9 +24,9 @@ function RootLayout() {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
-  // useEffect(() => {
-  //   replace("(drawer)");
-  // }, []);
+  useEffect(() => {
+    replace("(drawer)");
+  }, []);
 
   // --- END: Side effects -----------------------------------------------------
 
@@ -39,7 +41,7 @@ function RootLayout() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="(condominium)/index"
+          name="(condominiumConfig)/index"
           options={{ headerShown: false }}
         />
       </Stack>

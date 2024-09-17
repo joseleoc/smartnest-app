@@ -12,6 +12,9 @@
   "HOME": {
     "TITLE": "Inicio"
   },
+  "CONDOMINIUM": {
+    "CREATE": "Crear condominio"
+  },
   "SETTINGS": {
     "TITLE": "Ajustes"
   },

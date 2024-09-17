@@ -37,6 +37,7 @@ export default function Button(props: ButtonProps) {
         { backgroundColor: colors.primary },
         styles.buttonShadow,
         styles.button,
+        pressed && styles.buttonPressed,
         pressed ? (pressStyle ?? style) : style,
       ]}
     >

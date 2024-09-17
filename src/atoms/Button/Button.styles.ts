@@ -21,4 +21,7 @@ export const styles = StyleSheet.create({
     },
     default: {},
   }),
+  buttonPressed: {
+    opacity: 0.5
+  }
 });

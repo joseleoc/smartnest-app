@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "smartnestapp3510345d_identitypool_3510345d",
+    "identityPoolName": "smartnestapp465f79b3_identitypool_465f79b3",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "smartn3510345d",
-    "userPoolName": "smartnestapp3510345d_userpool_3510345d",
+    "resourceNameTruncated": "smartn465f79b3",
+    "userPoolName": "smartnestapp465f79b3_userpool_465f79b3",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -32,23 +32,18 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "smartn3510345d_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "smartn465f79b3_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "3510345d",
-    "resourceName": "smartnestapp3510345d",
+    "sharedId": "465f79b3",
+    "resourceName": "smartnestapp465f79b3",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "usernameAttributes": [
       "email"
     ],
-    "triggers": {
-      "CustomMessage": [
-        "verification-link"
-      ]
-    },
+    "triggers": {},
     "userPoolGroupList": [],
     "serviceName": "Cognito",
-    "verificationBucketName": "smartnestapp3510345dverificationbucket",
     "usernameCaseSensitive": false,
     "useEnabledMfas": true
   }

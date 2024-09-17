@@ -13,9 +13,6 @@
       "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-smartnestapp-dev-565ef-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
-      "auth": {
-        "smartnestapp3510345d": {}
-      },
       "function": {
         "smartnestapp3510345dCustomMessage": {
           "REDIRECTURL": "https://www.smartnest.es",
@@ -24,6 +21,9 @@
           "deploymentBucketName": "amplify-smartnestapp-dev-565ef-deployment",
           "s3Key": "amplify-builds/smartnestapp3510345dCustomMessage-4959526f446637566e50-build.zip"
         }
+      },
+      "auth": {
+        "smartnestapp465f79b3": {}
       }
     }
   }

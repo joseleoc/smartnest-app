@@ -5,11 +5,14 @@ import useTheme from "@/hooks/useTheme";
 
 import Text from "@/atoms/Text";
 import View from "@/atoms/View";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 import { styles } from "./CondominiumAvatar.styles";
 import { TCondominium } from "@/types/condominium.types";
 import { getActiveCondominium$ } from "@/db/model/condominium";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import Button from "@/atoms/Button";
 
 type CondominiumAvatarProps = { condominiums: TCondominium[] };
 function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
@@ -18,6 +21,7 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
     styling: { spacing, radius, text },
     colors,
   } = useTheme();
+  const { t } = useTranslation();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -26,9 +30,30 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
 
   // --- Side effects ----------------------------------------------------------
   useEffect(() => {
-    setCondominium(condominiums[0]);
+    if (condominiums[0] != null) setCondominium(condominiums[0]);
   }, [condominiums]);
   // --- END: Side effects -----------------------------------------------------
+
+  if (condominium == null)
+    return (
+      <View
+        style={[styles.createCondominiumContainer, { gap: spacing.medium }]}
+      >
+        <Text> {t("CONDOMINIUM.CREATE")}</Text>
+        <Button style={[{ backgroundColor: colors.secondary }]}>
+          <AntDesign
+            name="plus"
+            size={text.medium}
+            style={{
+              color: colors.secondaryContrast,
+              width: text.medium,
+              height: text.medium,
+            }}
+            color={colors.secondaryContrast}
+          />
+        </Button>
+      </View>
+    );
 
   return (
     <View

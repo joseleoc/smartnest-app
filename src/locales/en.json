@@ -6,7 +6,8 @@
     "CANCEL": "Cancel",
     "DELETE": "Delete",
     "EDIT": "Edit",
-    "SAVE": "Save"
+    "SAVE": "Save",
+    "SIGN_OUT": "Sign out"
   },
   "HOME": {
     "TITLE": "Home"

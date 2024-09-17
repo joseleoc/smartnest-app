@@ -1,1 +1,90 @@
-{}
+{
+  "auth": {
+    "smartnestapp3510345d": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "smartnestapp3510345dCustomMessage",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "smartnestapp3510345dCustomMessage": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_smartnestapp3510345dCustomMessage_EMAILMESSAGE": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "smartnestapp3510345dCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_smartnestapp3510345dCustomMessage_EMAILSUBJECT": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "smartnestapp3510345dCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_smartnestapp3510345dCustomMessage_REDIRECTURL": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "smartnestapp3510345dCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_smartnestapp3510345dCustomMessage_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "smartnestapp3510345dCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_smartnestapp3510345dCustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "smartnestapp3510345dCustomMessage"
+        }
+      ]
+    }
+  }
+}

@@ -7,11 +7,15 @@ import ExpensesForm from "./components/ExpensesForm";
 import IncomesForm from "./components/IncomesForm";
 import TransactionsTabs from "./components/TransactionsTabs";
 import { useStore } from "@/stores/zustand";
+import Button from "@/atoms/Button";
+import { useRouter } from "expo-router";
+import Text from "@/atoms/Text";
 
 export default function Transactions() {
   // --- Hooks -----------------------------------------------------------------
   const { styling } = useTheme();
   const { transactionsView: view } = useStore();
+  const { push } = useRouter();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -31,6 +35,9 @@ export default function Transactions() {
 
   return (
     <SafeAreaView>
+      <Button onPress={() => push("(drawer)")}>
+        <Text>Back</Text>
+      </Button>
       <View
         style={[
           styles.container,

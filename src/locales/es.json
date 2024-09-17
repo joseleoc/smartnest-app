@@ -6,7 +6,8 @@
     "CANCEL": "Cancelar",
     "DELETE": "Eliminar",
     "EDIT": "Editar",
-    "SAVE": "Guardar"
+    "SAVE": "Guardar",
+    "SIGN_OUT": "Cerrar sesión"
   },
   "HOME": {
     "TITLE": "Inicio"

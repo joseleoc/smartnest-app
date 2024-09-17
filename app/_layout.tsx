@@ -2,13 +2,14 @@ import { Stack } from "expo-router/stack";
 import "@/i18n";
 import useDefaultLanguage from "@/hooks/language";
 import GeneralContextProvider from "@/providers/generalContextProvider";
-import { useEffect } from "react";
-import { useRouter } from "expo-router";
+import { withAuthenticator } from "@aws-amplify/ui-react-native";
 
-export default function RootLayout() {
+// retrieves only the current value of 'user' from 'useAuthenticator'
+
+function RootLayout() {
   // --- Hooks -----------------------------------------------------------------
   useDefaultLanguage();
-  const { replace } = useRouter();
+  // const { replace } = useRouter();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -21,9 +22,9 @@ export default function RootLayout() {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
-  useEffect(() => {
-    replace("(drawer)");
-  }, []);
+  // useEffect(() => {
+  //   replace("(drawer)");
+  // }, []);
 
   // --- END: Side effects -----------------------------------------------------
 
@@ -45,3 +46,5 @@ export default function RootLayout() {
     </GeneralContextProvider>
   );
 }
+
+export default withAuthenticator(RootLayout);

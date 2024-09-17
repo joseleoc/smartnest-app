@@ -10,13 +10,21 @@ import Condominium from "@/db/model/condominium/condominium";
 import { withObservables } from "@nozbe/watermelondb/react";
 import { CondominiumCollection } from "@/db/model/condominium/condominium.functions";
 import View from "@/atoms/View";
+import SignOutButton from "@/atoms/SignOutButton";
+import useTheme from "@/hooks/useTheme";
 
 function CustomDrawerContent({
   condominiums,
 }: {
   condominiums: Condominium[];
 }) {
+  // --- Hooks -----------------------------------------------------------------
   const { push } = useRouter();
+  const {
+    styling: { spacing },
+  } = useTheme();
+  // --- END: Hooks ------------------------------------------------------------
+  // --- Local state -----------------------------------------------------------
   const [items, setItems] = useState<any[]>([
     {
       label: "Home",
@@ -31,16 +39,23 @@ function CustomDrawerContent({
       },
     },
   ]);
+  // --- END: Local state
+
   return (
     <DrawerContentScrollView style={[styles.scrollView]}>
-      <CondominiumAvatar />
-      {items.map((item) => (
-        <DrawerItem
-          key={item.label}
-          label={item.label}
-          onPress={item.onPress}
-        />
-      ))}
+      <View style={[styles.container, { gap: spacing.medium }]}>
+        <CondominiumAvatar />
+        <View>
+          {items.map((item) => (
+            <DrawerItem
+              key={item.label}
+              label={item.label}
+              onPress={item.onPress}
+            />
+          ))}
+        </View>
+        <SignOutButton />
+      </View>
     </DrawerContentScrollView>
   );
 }

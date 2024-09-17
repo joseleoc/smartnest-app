@@ -13,7 +13,13 @@
     "TITLE": "Home"
   },
   "CONDOMINIUM": {
-    "CREATE": "Create condominium"
+    "CREATE": "Create condominium",
+    "CREATE_FORM": {
+      "NAME": "Condominium name",
+      "ADDRESS": "Address",
+      "DESCRIPTION": "Description",
+      "AVATAR": "Avatar"
+    }
   },
   "SETTINGS": {
     "TITLE": "Settings"
@@ -23,5 +29,9 @@
   },
   "INCOMES": {
     "TITLE": "Incomes"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Required",
+    "MAX_LENGTH": "Max {{max}} characters"
   }
 }

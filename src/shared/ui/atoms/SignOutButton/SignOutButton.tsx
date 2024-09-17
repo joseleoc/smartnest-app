@@ -17,9 +17,9 @@ export default function SignOutButton() {
   }, [user]);
 
   return (
-    <Button onPress={signOut}>
+    <Button onPress={signOut} style={[{ backgroundColor: colors.secondary }]}>
       {/* <Text>Hello, {user.username}! Click here to sign out!</Text> */}
-      <Text style={{ color: colors.primaryContrast }}>
+      <Text style={{ color: colors.secondaryContrast }}>
         {t("COMMON.SIGN_OUT")}
       </Text>
     </Button>

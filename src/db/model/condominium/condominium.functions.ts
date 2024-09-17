@@ -6,10 +6,9 @@ import { TableName } from "@/db/db.types";
 import { TCondominium } from "@/types/condominium.types";
 
 
-export async function createCondominium(condominium: TCondominium) {
+export async function createCondominium(condominium: Omit<TCondominium, "id">) {
     const newCondominium = await database.write(async () =>
         await database.collections.get<Condominium>(TableName.Condominiums).create((collectionCondominium) => {
-            collectionCondominium.condominiumId = condominium.condominiumId;
             collectionCondominium.name = condominium.name;
             collectionCondominium.description = condominium.description;
             collectionCondominium.createdAt = new Date();

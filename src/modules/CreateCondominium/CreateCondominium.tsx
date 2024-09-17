@@ -10,6 +10,7 @@ import { CondominiumCollection } from "@/db/model/condominium/condominium.functi
 import Condominium from "@/db/model/condominium/condominium";
 import { useEffect } from "react";
 import Header from "./Components/header";
+import CreateCondominiumForm from "./Components/form";
 
 function CreateCondominium({ condominiums }: { condominiums: Condominium[] }) {
   // --- Hooks -----------------------------------------------------------------
@@ -32,6 +33,7 @@ function CreateCondominium({ condominiums }: { condominiums: Condominium[] }) {
   useEffect(() => {
     console.log("condominiums: ", condominiums);
   }, [condominiums]);
+
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
@@ -39,8 +41,9 @@ function CreateCondominium({ condominiums }: { condominiums: Condominium[] }) {
 
   return (
     <SafeAreaView>
-      <View style={[styles.container, { padding: spacing.large }]}>
+      <View style={[styles.container, { padding: spacing.medium }]}>
         <Header />
+        <CreateCondominiumForm />
       </View>
     </SafeAreaView>
   );

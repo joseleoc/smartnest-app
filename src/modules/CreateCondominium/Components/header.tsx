@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <View style={styles.headerContainer}>
-      <Text style={[styles.title, { fontSize: text.large }]}>
+      <Text style={[styles.title, { fontSize: text.medium }]}>
         {t("CONDOMINIUM.CREATE")}
       </Text>
       <BackButton style={styles.backButton} />

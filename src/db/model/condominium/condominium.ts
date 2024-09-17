@@ -10,7 +10,6 @@ export default class Condominium extends Model {
     //     properties: { type: 'has_many', foreignKey: 'condominium_id' },
     // };
 
-    @field('condominium_id') condominiumId!: string;
     @text('name') name!: string;
     @text('description') description?: string;
     @date('created_at') createdAt!: Date;

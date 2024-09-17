@@ -8,19 +8,7 @@ import ActionsBottomSheet from "@/templates/ActionsBottomSheet";
 
 export default function Home() {
   // --- Hooks -----------------------------------------------------------------
-  const create = async () => {
-    try {
-      const newCondominium = await createCondominium({
-        condominiumId: "123912'39",
-        name: "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
-        description:
-          "Smartnest is a mobile app designed for condominium administrators. It streamlines financial management by allowing users to track expenses and income, generate detailed reports, and send automated emails. The app's offline-first architecture ensures seamless functionality, even in areas with limited internet connectivity.",
-      });
-      console.log("created");
-    } catch (error) {
-      console.error("🚀 ~ file: Home.tsx:20 ~ create ~ error:", error);
-    }
-  };
+
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -40,7 +28,7 @@ export default function Home() {
 
   return (
     <SafeAreaView>
-      <Button onPress={create}>
+      <Button>
         <Text colorName="primaryContrast">Home</Text>
       </Button>
       <FloatActionButton />

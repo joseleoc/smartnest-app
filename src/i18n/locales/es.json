@@ -13,7 +13,13 @@
     "TITLE": "Inicio"
   },
   "CONDOMINIUM": {
-    "CREATE": "Crear condominio"
+    "CREATE": "Crear condominio",
+    "CREATE_FORM": {
+      "NAME": "Nombre del condominio",
+      "ADDRESS": "Dirección",
+      "DESCRIPTION": "Descripción",
+      "AVATAR": "Avatar"
+    }
   },
   "SETTINGS": {
     "TITLE": "Ajustes"
@@ -23,5 +29,9 @@
   },
   "INCOMES": {
     "TITLE": "Ingresos"
+  },
+  "VALIDATION": {
+    "REQUIRED": "Requerido",
+    "MAX_LENGTH": "Máximo de {{max}} caracteres"
   }
 }

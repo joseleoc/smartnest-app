@@ -33,6 +33,7 @@ export default function TextInput(props: TextInputProps) {
           height: styling.input.medium,
           borderBottomColor: colors.dark,
           borderBottomWidth: 1,
+          paddingHorizontal: styling.spacing.small,
         },
         style,
       ]}

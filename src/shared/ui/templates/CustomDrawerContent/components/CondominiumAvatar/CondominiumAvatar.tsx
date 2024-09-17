@@ -50,17 +50,17 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
         <Text> {t("CONDOMINIUM.CREATE")}</Text>
         <Button
           onPress={goToCreateCondominium}
-          style={[{ backgroundColor: colors.secondary }]}
+          style={[{ backgroundColor: colors.primary }]}
         >
           <AntDesign
             name="plus"
             size={text.medium}
             style={{
-              color: colors.secondaryContrast,
+              color: colors.primaryContrast,
               width: text.medium,
               height: text.medium,
             }}
-            color={colors.secondaryContrast}
+            color={colors.primaryContrast}
           />
         </Button>
       </View>
@@ -99,7 +99,7 @@ function CondominiumAvatar({ condominiums }: CondominiumAvatarProps) {
           {condominium?.name}
         </Text>
 
-        <Text style={styles.text}>{condominium?.condominiumId}</Text>
+        <Text style={styles.text}>{condominium?.name}</Text>
 
         <Text
           numberOfLines={3}

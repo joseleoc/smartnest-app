@@ -1,12 +1,9 @@
+import { Text as RNText, TextProps as RNTextProps } from "react-native";
+
 import useTheme from "@/hooks/useTheme";
-import { ThemeProps } from "@/types";
-import {
-  Text as RNText,
-  TextProps as RNTextProps,
-  useColorScheme,
-} from "react-native";
 import { Theme } from "@/constants/theme";
-import { useEffect, useState } from "react";
+
+import { ThemeProps } from "@/types";
 
 export type TextProps = RNTextProps &
   ThemeProps & { colorName?: keyof Theme["colors"] };
@@ -14,8 +11,6 @@ export type TextProps = RNTextProps &
 export default function Text(props: TextProps) {
   // --- Hooks -----------------------------------------------------------------
   const { colors } = useTheme();
-  const colorScheme = useColorScheme();
-  const [colorText, setColorText] = useState(colors.text);
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -31,18 +26,13 @@ export default function Text(props: TextProps) {
   // --- END: Redux ------------------------------------------------------------
 
   // --- Side effects ----------------------------------------------------------
-  useEffect(() => {
-    if (colorName != null) {
-      setColorText(colors[colorName]);
-    }
-  }, [colorScheme, colorName]);
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
   // --- END: Data and handlers ------------------------------------------------
 
   return (
-    <RNText style={[{ color: colorText }, style]} {...otherProps}>
+    <RNText style={[{ color: colors.text }, style]} {...otherProps}>
       {children}
     </RNText>
   );

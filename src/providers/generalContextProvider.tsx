@@ -4,6 +4,8 @@ Amplify.configure(amplifyconfig);
 import { ThemeProvider } from "@react-navigation/native";
 import { useColorScheme } from "react-native";
 import { DarkTheme, LightTheme } from "@/constants/theme";
+import Toast from "react-native-toast-message";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function GeneralContextProvider({
   children,
@@ -11,10 +13,12 @@ export default function GeneralContextProvider({
   children: React.ReactNode;
 }) {
   const colorScheme = useColorScheme();
+  const insets = useSafeAreaInsets();
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : LightTheme}>
       {children}
+      <Toast topOffset={insets.top} bottomOffset={insets.bottom} />
     </ThemeProvider>
   );
 }

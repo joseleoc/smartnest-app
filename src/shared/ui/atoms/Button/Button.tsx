@@ -31,17 +31,20 @@ export default function Button(props: ButtonProps) {
   // --- END: Side effects -----------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
-  const { style, pressStyle, children, shadow, ...otherProps } = props;
+  const { style, pressStyle, children, shadow, disabled, ...otherProps } =
+    props;
   // --- END: Data and handlers ------------------------------------------------
 
   return (
     <Pressable
       {...otherProps}
+      disabled={disabled}
       style={({ pressed }) => [
         { backgroundColor: colors.primary },
         (shadow == null || shadow === true) && styles.buttonShadow,
         styles.button,
         pressed && styles.buttonPressed,
+        disabled && { opacity: 0.5 },
         pressed ? (pressStyle ?? style) : style,
       ]}
     >

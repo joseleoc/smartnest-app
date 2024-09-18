@@ -12,6 +12,8 @@ import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 import { KeyboardAvoidingView } from "react-native";
 import { useState } from "react";
+import Toast from "react-native-toast-message";
+import { createCondominium } from "@/db/model/condominium";
 
 type Inputs = {
   name: string;
@@ -31,7 +33,14 @@ export default function CreateCondominiumForm() {
     handleSubmit,
     control,
     formState: { errors, isValid },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    defaultValues: {
+      name: "",
+      address: "",
+      description: "",
+      avatar: "",
+    },
+  });
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -43,15 +52,28 @@ export default function CreateCondominiumForm() {
     if (isValid) {
       try {
         // const newCondominium = await createCondominium({
-        //   name: "lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet",
-        //   description:
-        //     "Smartnest is a mobile app designed for condominium administrators. It streamlines financial management by allowing users to track expenses and income, generate detailed reports, and send automated emails. The app's offline-first architecture ensures seamless functionality, even in areas with limited internet connectivity.",
+        //   name: data.name,
+        //   description: data.description,
+        //   address: data.address,
+        //   avatar: data.avatar,
         // });
-        console.log("created");
+        // console.log(
+        //   "🚀 ~ file: form.tsx:54 ~ onSubmit ~ newCondominium:",
+        //   newCondominium
+        // );
+        Toast.show({
+          type: "success",
+          text1: t("CONDOMINIUM.CREATE_FORM.CREATE_SUCCESS"),
+        });
+        setLoading(false);
       } catch (error) {
-        console.error("🚀 ~ file: Home.tsx:20 ~ create ~ error:", error);
+        console.error("🚀 ~ file: form.tsx:61 ~ onSubmit ~ error:", error);
+        setLoading(false);
+        Toast.show({
+          type: "error",
+          text1: t("CONDOMINIUM.CREATE_FORM.CREATE_ERROR"),
+        });
       }
-      setLoading(false);
     }
     console.log({ isValid });
     console.log(data);

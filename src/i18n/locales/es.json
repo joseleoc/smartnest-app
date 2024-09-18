@@ -18,7 +18,9 @@
       "NAME": "Nombre del condominio",
       "ADDRESS": "Dirección",
       "DESCRIPTION": "Descripción",
-      "AVATAR": "Avatar"
+      "AVATAR": "Avatar",
+      "CREATE_SUCCESS": "Condominio creado exitosamente",
+      "CREATE_ERROR": "Error al crear el condominio"
     }
   },
   "SETTINGS": {

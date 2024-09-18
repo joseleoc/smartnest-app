@@ -12,6 +12,7 @@ export default class Condominium extends Model {
 
     @text('name') name!: string;
     @text('description') description?: string;
+    @text('address') address!: string;
     @date('created_at') createdAt!: Date;
     @date("deleted_at") deletedAt?: Date;
     @field("is_deleted") isDeleted?: boolean;

@@ -6,17 +6,25 @@ import { TableName } from "@/db/db.types";
 import { TCondominium } from "@/types/condominium.types";
 
 
-export async function createCondominium(condominium: Omit<TCondominium, "id">) {
-    const newCondominium = await database.write(async () =>
-        await database.collections.get<Condominium>(TableName.Condominiums).create((collectionCondominium) => {
-            collectionCondominium.name = condominium.name;
-            collectionCondominium.description = condominium.description;
-            collectionCondominium.createdAt = new Date();
-            collectionCondominium.avatar = condominium.avatar;
-            collectionCondominium.setActive()
-        })
-    )
-    return newCondominium;
+export async function createCondominium(data: Omit<TCondominium, "id">) {
+    try {
+        console.log("data from fn", { data });
+        const newCondominium = await database.write(async () =>
+            await database.collections.get<Condominium>(TableName.Condominiums).create((collectionCondominium) => {
+                collectionCondominium.name = data.name;
+                collectionCondominium.description = data.description;
+                collectionCondominium.address = data.address;
+                collectionCondominium.createdAt = new Date();
+                collectionCondominium.avatar = data.avatar;
+                collectionCondominium.setActive()
+            })
+        )
+        return newCondominium;
+    } catch (error) {
+        console.error("🚀 ~ file: condominium.functions.ts:24 ~ createCondominium ~ error:", error);
+        Promise.reject(error)
+    }
+
 }
 
 export function getActiveCondominium$() {

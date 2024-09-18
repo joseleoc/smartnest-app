@@ -18,7 +18,9 @@
       "NAME": "Condominium name",
       "ADDRESS": "Address",
       "DESCRIPTION": "Description",
-      "AVATAR": "Avatar"
+      "AVATAR": "Avatar",
+      "CREATE_SUCCESS": "Condominium created successfully",
+      "CREATE_ERROR": "Error creating condominium"
     }
   },
   "SETTINGS": {

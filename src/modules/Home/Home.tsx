@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <SafeAreaView>
       <Button>
-        <Text colorName="primaryContrast">Home</Text>
+        <Text>Home</Text>
       </Button>
       <FloatActionButton />
       <ActionsBottomSheet />

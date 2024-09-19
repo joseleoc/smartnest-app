@@ -5,10 +5,11 @@ import Button from "@/atoms/Button";
 import SafeAreaView from "@/atoms/SafeAreaView";
 import FloatActionButton from "@/atoms/FloatActionButton";
 import ActionsBottomSheet from "@/templates/ActionsBottomSheet";
+import useTheme from "@/hooks/useTheme";
 
 export default function Home() {
   // --- Hooks -----------------------------------------------------------------
-
+  const { colors } = useTheme();
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
@@ -29,7 +30,7 @@ export default function Home() {
   return (
     <SafeAreaView>
       <Button>
-        <Text>Home</Text>
+        <Text style={{ color: colors.primaryContrast }}>Home</Text>
       </Button>
       <FloatActionButton />
       <ActionsBottomSheet />

@@ -2,13 +2,12 @@ import { Stack } from "expo-router/stack";
 import "@/i18n";
 import useDefaultLanguage from "@/hooks/language";
 import GeneralContextProvider from "@/providers/generalContextProvider";
-import { withAuthenticator } from "@aws-amplify/ui-react-native";
 import { useEffect } from "react";
 import { useRouter } from "expo-router";
 
 // retrieves only the current value of 'user' from 'useAuthenticator'
 
-function RootLayout() {
+export default function RootLayout() {
   // --- Hooks -----------------------------------------------------------------
   useDefaultLanguage();
   const { replace } = useRouter();
@@ -48,5 +47,3 @@ function RootLayout() {
     </GeneralContextProvider>
   );
 }
-
-export default withAuthenticator(RootLayout);

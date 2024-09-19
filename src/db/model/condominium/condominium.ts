@@ -20,14 +20,19 @@ export default class Condominium extends Model {
     @field("is_active") isActive?: boolean;
 
     @lazy setActive = async () => {
-        const previousActive = (await this.collections.get<Condominium>(TableName.Condominiums).query(Q.where("is_active", true)))[0];
-        if (previousActive) {
-            previousActive.update(() => {
-                previousActive.isActive = false;
+        try {
+            const previousActive = (await this.collections.get<Condominium>(TableName.Condominiums).query(Q.where("is_active", true)))[0];
+            if (previousActive != null) {
+                previousActive.update(() => {
+                    previousActive.isActive = false;
+                });
+            }
+            this.update(() => {
+                this.isActive = true;
             });
+        } catch (error) {
+            console.error("🚀 ~ file: condominium.ts:34 ~ Condominium ~ setActive ~ error:", error);
         }
-        this.update(() => {
-            this.isActive = true;
-        });
+
     }
 }

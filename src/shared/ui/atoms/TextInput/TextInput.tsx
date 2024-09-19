@@ -9,7 +9,7 @@ export default function TextInput(props: TextInputProps) {
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const { style, ...otherProps } = props;
+  const { style, placeholderTextColor, ...otherProps } = props;
   // --- END: Local state ------------------------------------------------------
 
   // --- Refs ------------------------------------------------------------------
@@ -29,6 +29,7 @@ export default function TextInput(props: TextInputProps) {
       style={[
         styles.textInput,
         {
+          color: colors.text,
           backgroundColor: colors.light,
           height: styling.input.medium,
           borderBottomColor: colors.dark,
@@ -37,6 +38,7 @@ export default function TextInput(props: TextInputProps) {
         },
         style,
       ]}
+      placeholderTextColor={placeholderTextColor ?? colors.medium}
       {...otherProps}
     />
   );

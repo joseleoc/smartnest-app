@@ -51,16 +51,17 @@ export default function CreateCondominiumForm() {
   const onSubmit = async (data: Inputs) => {
     if (isValid) {
       try {
-        // const newCondominium = await createCondominium({
-        //   name: data.name,
-        //   description: data.description,
-        //   address: data.address,
-        //   avatar: data.avatar,
-        // });
-        // console.log(
-        //   "🚀 ~ file: form.tsx:54 ~ onSubmit ~ newCondominium:",
-        //   newCondominium
-        // );
+        if (data.name === "") throw new Error("Name is required");
+        const newCondominium = await createCondominium({
+          name: data.name,
+          description: data.description || "",
+          address: data.address || "",
+          avatar: data.avatar || "",
+        });
+        console.log(
+          "🚀 ~ file: form.tsx:54 ~ onSubmit ~ newCondominium:",
+          newCondominium
+        );
         Toast.show({
           type: "success",
           text1: t("CONDOMINIUM.CREATE_FORM.CREATE_SUCCESS"),

@@ -28,7 +28,3 @@ npx expo run ions
 or
 npx expo run android
 ```
-
-## Contributing
-
-Contributions are welcome!

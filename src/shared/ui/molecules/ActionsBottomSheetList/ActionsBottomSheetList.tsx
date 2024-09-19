@@ -6,7 +6,7 @@ import useTheme from "@/hooks/useTheme";
 import View from "@/atoms/View";
 import Text from "@/atoms/Text";
 import { styles } from "./ActionsBottomSheetList.styles";
-import { GestureResponderEvent, Pressable } from "react-native";
+import { Pressable } from "react-native";
 import { Link } from "expo-router";
 import { useStore } from "@/stores/zustand";
 

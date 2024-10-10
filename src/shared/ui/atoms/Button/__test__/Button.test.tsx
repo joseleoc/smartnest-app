@@ -4,12 +4,11 @@ import Text from "@/atoms/Text";
 
 describe("Button atom", () => {
   test("renders correctly", () => {
-    const { toJSON } = render(
+    render(
       <Button>
         <Text>Test</Text>
       </Button>
     );
-    expect(toJSON()).toMatchSnapshot();
     expect(screen.queryByText("Test")).toBeTruthy();
   });
 

@@ -3,7 +3,7 @@ import TextInput from "@/atoms/TextInput";
 import Text from "@/atoms/Text";
 import Button from "@/atoms/Button";
 import View from "@/atoms/View";
-import { styles } from "../CreateCondominium.styles";
+import { styles } from "../../CreateCondominium.styles";
 import useTheme from "@/hooks/useTheme";
 import { useTranslation } from "react-i18next";
 
@@ -11,18 +11,11 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 import SimpleLineIcons from "@expo/vector-icons/SimpleLineIcons";
 import { KeyboardAvoidingView } from "react-native";
-import { useState } from "react";
-import Toast from "react-native-toast-message";
-import { createCondominium } from "@/db/model/condominium";
+import { CreateCondominiumFormProps, Inputs } from "./form.types";
 
-type Inputs = {
-  name: string;
-  address: string;
-  description: string;
-  avatar: string;
-};
-
-export default function CreateCondominiumForm() {
+export default function CreateCondominiumForm(
+  props: CreateCondominiumFormProps
+) {
   // --- Hooks -----------------------------------------------------------------
   const { t } = useTranslation();
   const {
@@ -33,6 +26,7 @@ export default function CreateCondominiumForm() {
     handleSubmit,
     control,
     formState: { errors, isValid },
+    reset,
   } = useForm<Inputs>({
     defaultValues: {
       name: "",
@@ -44,43 +38,14 @@ export default function CreateCondominiumForm() {
   // --- END: Hooks ------------------------------------------------------------
 
   // --- Local state -----------------------------------------------------------
-  const [loading, setLoading] = useState(false);
   // --- END: Local state ------------------------------------------------------
 
   // --- Data and handlers -----------------------------------------------------
-  const onSubmit = async (data: Inputs) => {
-    if (isValid) {
-      try {
-        if (data.name === "") throw new Error("Name is required");
-        const newCondominium = await createCondominium({
-          name: data.name,
-          description: data.description || "",
-          address: data.address || "",
-          avatar: data.avatar || "",
-        });
-        console.log(
-          "🚀 ~ file: form.tsx:54 ~ onSubmit ~ newCondominium:",
-          newCondominium
-        );
-        Toast.show({
-          type: "success",
-          text1: t("CONDOMINIUM.CREATE_FORM.CREATE_SUCCESS"),
-        });
-        setLoading(false);
-      } catch (error) {
-        console.error("🚀 ~ file: form.tsx:61 ~ onSubmit ~ error:", error);
-        setLoading(false);
-        Toast.show({
-          type: "error",
-          text1: t("CONDOMINIUM.CREATE_FORM.CREATE_ERROR"),
-        });
-      }
-    }
-    console.log({ isValid });
-    console.log(data);
-    setLoading(true);
+  const { createCondominium, loading } = props;
+  const onSubmit = (data: Inputs) => {
+    createCondominium(data);
+    reset();
   };
-
   // --- END: Data and handlers ------------------------------------------------
   return (
     <KeyboardAvoidingView
